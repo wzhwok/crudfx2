@@ -57,7 +57,7 @@ public class Main {
 		    .icon("icon48.png")
 		    )
 		)
-	    .icon("icon48.png")
+	    .icon("icon16.png")
 	    .menu(new BiSet<MenuPad>()
 		.add(new MenuPad()
 		    .title(localization.get("menuFile"))
