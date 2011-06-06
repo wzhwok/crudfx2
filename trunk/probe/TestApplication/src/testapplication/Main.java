@@ -46,6 +46,7 @@ public class Main {
 		.left(new StandardTree()
 		    .treeItem(new TreeLeaf()
 			.title("leaf 1")
+			.icon("i16x16/filenew.png.png")
 			)
 		    .treeItem(new TreeBranch()
 			.title("branch 1")

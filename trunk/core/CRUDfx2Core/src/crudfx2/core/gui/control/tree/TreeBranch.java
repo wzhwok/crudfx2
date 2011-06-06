@@ -7,6 +7,7 @@ public class TreeBranch extends TreeItem {
 
     protected BiSet<TreeItem> _children = new BiSet<TreeItem>();
     protected BiValue<Boolean> _fold = new BiValue<Boolean>();
+    protected BiValue<String> _openedIcon = new BiValue<String>();
     public BiSet<TreeItem> children() {
 	return _children;
     }
@@ -23,6 +24,25 @@ public class TreeBranch extends TreeItem {
     }
     public TreeBranch title(BiValue<String> t) {
 	this.title().bind(t);
+	return this;
+    }
+    public TreeBranch icon(String t) {
+	this.icon().set(t);
+	return this;
+    }
+    public TreeBranch icon(BiValue<String> t) {
+	this.icon().bind(t);
+	return this;
+    }
+    public BiValue<String> openedIcon() {
+	return _openedIcon;
+    }
+     public TreeBranch openedIcon(String t) {
+	this.openedIcon().set(t);
+	return this;
+    }
+    public TreeBranch openedIcon(BiValue<String> t) {
+	this.openedIcon().bind(t);
 	return this;
     }
     /*public void onSpread() {

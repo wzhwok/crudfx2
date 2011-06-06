@@ -22,4 +22,13 @@ public class TreeLeaf extends TreeItem {
 	this.title().bind(t);
 	return this;
     }
+    public TreeLeaf icon(String t) {
+	this.icon().set(t);
+	return this;
+    }
+    public TreeLeaf icon(BiValue<String> t) {
+	this.icon().bind(t);
+	return this;
+    }
+    
 }
