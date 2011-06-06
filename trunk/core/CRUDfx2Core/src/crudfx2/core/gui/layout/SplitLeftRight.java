@@ -7,33 +7,40 @@ public class SplitLeftRight extends Widget {
 
     private BiValue<Widget> _left = new BiValue<Widget>();
     private BiValue<Widget> _right = new BiValue<Widget>();
-    private BiValue<Integer> _split = new BiValue<Integer>();
-
+    private BiValue<Integer> _split = new BiValue<Integer>(200);
     public BiValue<Integer> split() {
-        return _split;
+	return _split;
     }
-
+    public SplitLeftRight split(Integer n) {
+	split().set(n);
+	return this;
+    }
+    public SplitLeftRight split(BiValue<Integer> n) {
+	split().bind(n);
+	return this;
+    }
     public BiValue<Widget> left() {
-        return _left;
+	return _left;
     }
-
+    public SplitLeftRight left(Widget c) {
+	left().set(c);
+	return this;
+    }
+    public SplitLeftRight left(BiValue<Widget> c) {
+	left().bind(c);
+	return this;
+    }
     public BiValue<Widget> right() {
-        return _right;
+	return _right;
     }
-
-   /* public SplitLeftRight(int split, Widget left, Widget right) {
-        _left.set(left);
-        _right.set(right);
-        _split.set(split);
-    }*/
-public SplitLeftRight(BiValue<Integer> split, Widget left, Widget right) {
-        _left.set(left);
-        _right.set(right);
-        _split.bind(split);
+    public SplitLeftRight right(Widget c) {
+	right().set(c);
+	return this;
     }
-    /*public SplitLeftRight(BiValue<Integer> split, BiValue<Widget> left, BiValue<Widget> right) {
-        _left.bind(left);
-        _right.bind(right);
-        _split.bind(split);
-    }*/
+    public SplitLeftRight right(BiValue<Widget> c) {
+	right().bind(c);
+	return this;
+    }
+    public SplitLeftRight() {
+    }
 }

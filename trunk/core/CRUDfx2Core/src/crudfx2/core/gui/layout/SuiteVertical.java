@@ -6,16 +6,13 @@ import crudfx2.core.bind.*;
 public class SuiteVertical extends Widget {
 
     private BiSet<Widget> _suite = new BiSet<Widget>();
-
     public BiSet<Widget> suite() {
-        return _suite;
+	return _suite;
     }
-
-    public SuiteVertical(Widget[] units) {
-        _suite.add(units);
+    public SuiteVertical item(Widget w) {
+	_suite.add(w);
+	return this;
     }
-
-    public SuiteVertical(BiSet<Widget> units) {
-        _suite.bind(units);
+    public SuiteVertical() {
     }
 }

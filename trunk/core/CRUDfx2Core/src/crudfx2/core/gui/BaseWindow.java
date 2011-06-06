@@ -23,18 +23,18 @@ public class BaseWindow {
         return _menu;
     }
 
-    /*public BaseWindow menu(MenuPad p) {
+    public BaseWindow menuPad(MenuPad p) {
         menu().add(p);
         return this;
-    }*/
-    public BaseWindow menu(BiSet<MenuPad> u) {
+    }
+    //public BaseWindow menu(BiSet<MenuPad> u) {
 	//for(int i=0;i<u.count();i++){
 	//    _menu.add(u.get(i));
 	//}
         //_toolbar.add(u);
-	_menu.bind(u);
-        return this;
-    }
+	//_menu.bind(u);
+        //return this;
+    //}
 
     /*public GroupSet<String> localization() {
         return _localization;
@@ -142,7 +142,8 @@ public class BaseWindow {
     
     
     public BaseWindow(String applicationKey//, BiValue<String> applicationIcon
-            , BaseTheme theme) {
+            , BaseTheme theme
+	    ) {
         _theme = theme;
         key = applicationKey;
         //_icon.bind(applicationIcon);

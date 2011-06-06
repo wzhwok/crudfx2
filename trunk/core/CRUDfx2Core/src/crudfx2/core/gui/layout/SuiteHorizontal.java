@@ -15,10 +15,4 @@ public class SuiteHorizontal extends Widget {
     }
     public SuiteHorizontal() {
     }
-    /*    public SuiteHorizontal(Widget[] units) {
-    _suite.add(units);
-    }
-    public SuiteHorizontal(BiSet<Widget> units) {
-    _suite.bind(units);
-    }*/
 }

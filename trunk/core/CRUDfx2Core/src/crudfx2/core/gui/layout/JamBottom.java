@@ -7,22 +7,28 @@ public class JamBottom extends Widget {
 
     private BiValue<Widget> _body = new BiValue<Widget>();
     private BiValue<Widget> _bottom = new BiValue<Widget>();
-
     public BiValue<Widget> body() {
-        return _body;
+	return _body;
     }
-
+    public JamBottom body(Widget c) {
+	body().set(c);
+	return this;
+    }
+    public JamBottom body(BiValue<Widget> c) {
+	body().bind(c);
+	return this;
+    }
     public BiValue<Widget> bottom() {
-        return _bottom;
+	return _bottom;
     }
-
-    public JamBottom(Widget body, Widget bottom) {
-        _body.set(body);
-        _bottom.set(bottom);
+    public JamBottom bottom(Widget c) {
+	bottom().set(c);
+	return this;
     }
-
-    public JamBottom(BiValue<Widget> body, BiValue<Widget> bottom) {
-        _body.bind(body);
-        _bottom.bind(bottom);
+    public JamBottom bottom(BiValue<Widget> c) {
+	bottom().bind(c);
+	return this;
+    }
+    public JamBottom() {
     }
 }
