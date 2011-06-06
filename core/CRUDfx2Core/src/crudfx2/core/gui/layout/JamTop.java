@@ -7,25 +7,28 @@ public class JamTop extends Widget {
 
     private BiValue<Widget> _top = new BiValue<Widget>();
     private BiValue<Widget> _body = new BiValue<Widget>();
-
     public BiValue<Widget> body() {
-        return _body;
+	return _body;
     }
-
+    public JamTop body(Widget c) {
+	body().set(c);
+	return this;
+    }
+    public JamTop body(BiValue<Widget> c) {
+	body().bind(c);
+	return this;
+    }
     public BiValue<Widget> top() {
-        return _top;
+	return _top;
     }
-
-    public JamTop(Widget top, Widget body) {
-        _top.set(top);
-        _body.set(body);
+    public JamTop top(Widget c) {
+	top().set(c);
+	return this;
     }
-
-    public JamTop(BiValue<Widget> top, BiValue<Widget> body) {
-        _top.bind(top);
-        _body.bind(body);
+    public JamTop top(BiValue<Widget> c) {
+	top().bind(c);
+	return this;
     }
-
     public JamTop() {
     }
 }
