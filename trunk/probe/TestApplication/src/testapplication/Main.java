@@ -38,7 +38,7 @@ public class Main {
 	    @Override public Boolean calculateSecond() { return !ru.get();} };
 	window
 	    .title(localization.get("applicationTitle"))
-	    .footer(new TextLabel()
+	    .footer(new StandardLabel()
 		.title("...")
 		)
 	    .body(new SplitLeftRight()
@@ -59,8 +59,9 @@ public class Main {
 		.right(new Tabs()
 		    .page(new TabPage()
 			.title("info")
-			.body(new TextLabel()
-			    .title("Blabla")
+			.body(new StandardLabel()
+			    .title("Blabla-blabla-blabla")
+			    .icon("i32x32/core.png")
 			    )
 			)
 		    )
