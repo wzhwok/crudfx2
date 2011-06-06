@@ -9,21 +9,29 @@ import crudfx2.core.view.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
+import crudfx2theme.nuvola.*;
 
 public class NativeTextLabel extends JLabel {
 
-    TextLabel _unit;
+    StandardLabel _unit;
+    public NativeTextLabel(StandardLabel unit) {
+	super();
+	_unit = unit;
+	this.setVerticalTextPosition(JLabel.BOTTOM);
+	this.setHorizontalTextPosition(JLabel.CENTER);
+	new BiValue<String>(_unit.title()) {
 
-    public NativeTextLabel(TextLabel unit) {
-        super();
-        _unit = unit;
+	    @Override
+	    public void onChange(String newValue) {
+		setText(_unit.title().get());
+	    }
+	};
+	new BiValue<String>(_unit.icon()) {
 
-        new BiValue<String>(_unit.title()) {
-
-            @Override
-            public void onChange(String newValue) {
-                setText(_unit.title().get());
-            }
-        };
+	    @Override
+	    public void onChange(String newValue) {
+		setIcon(IconLoader.icon(_unit.icon().get()));
+	    }
+	};
     }
 }

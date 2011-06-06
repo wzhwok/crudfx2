@@ -109,8 +109,8 @@ public class Theme extends BaseTheme {
         if (unit instanceof ColorFill) {
             return new NativeColorFill((ColorFill) unit, this);
         }
-        if (unit instanceof TextLabel) {
-            return new NativeTextLabel((TextLabel) unit);
+        if (unit instanceof StandardLabel) {
+            return new NativeTextLabel((StandardLabel) unit);
         }
         if (unit instanceof JamLeft) {
             return new NativeJamLeft((JamLeft) unit, this);
