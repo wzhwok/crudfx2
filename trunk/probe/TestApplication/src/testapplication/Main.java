@@ -18,8 +18,8 @@ import java.awt.*;
 public class Main {
 
     public static void main(String[] args) {
-	//final BaseTheme theme = new crudfx2substance.SuTheme();
-	final BaseTheme theme = new crudfx2theme.Theme();
+	final BaseTheme theme = new crudfx2substance.SuTheme();
+	//final BaseTheme theme = new crudfx2theme.Theme();
 	final Localization localization=new Localization();
 	final BaseWindow window = new BaseWindow("CrudfxExplorer.xml", theme){
 	    @Override public void onClose() {
@@ -46,16 +46,20 @@ public class Main {
 		.left(new StandardTree()
 		    .treeItem(new TreeLeaf()
 			.title("leaf 1")
-			.icon("i16x16/filenew.png.png")
+			.icon("i16x16/filenew.png")
 			)
 		    .treeItem(new TreeBranch()
 			.title("branch 1")
+                        .icon("i16x16/folder_orange.png")
+                        .openedIcon("i16x16/folder_orange_open.png")
 			.treeItem(new TreeLeaf()
 			    .title("sub leaf")
+                            .icon("i16x16/services.png")
 			    )
 			)
 		    .treeItem(new TreeLeaf()
 			.title("leaf 2")
+                        .icon("i16x16/kcmdf.png")
 			)
 		    )
 		.right(new Tabs()
