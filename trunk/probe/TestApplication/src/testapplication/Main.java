@@ -20,15 +20,16 @@ public class Main {
     public static void main(String[] args) {
 	//final BaseTheme theme = new crudfx2substance.SuTheme();
 	final BaseTheme theme = new crudfx2theme.Theme();
+	final Localization localization=new Localization();
 	final BaseWindow window = new BaseWindow("CrudfxExplorer.xml", theme){
-            public void onClose() {
+	    @Override public void onClose() {
                 theme.log(0, "done");
                 }
-            public boolean approveClosing() {
-                return theme.confirm("Exit from app");
+	    @Override public boolean approveClosing() {
+                return theme.confirm(localization.get("exitConfirmation").get());
                 }
             };
-	final Localization localization=new Localization();
+	
 	localization.current(window.configuration().find("properies").find("language").find("").asString("English"));
 	setupLocalization(localization);
 	final BiValue<Boolean> en = new BiValue<Boolean>(false) {@Override public void onChange(Boolean checked) {if (checked) localization.current().set("English");}};
@@ -57,7 +58,14 @@ public class Main {
 			)
 		    )
 		.right(new Tabs()
-		    .page(new TabPage()
+		    .page(new TabPage(){
+			@Override public boolean approveClosing() {
+			    return theme.confirm(localization.get("closeTabConfirmation").get());
+			    }
+			@Override public void onClose() {
+			    theme.log(0, "tab closed");
+			    }
+			}
 			.title("info")
 			.body(new StandardLabel()
 			    .title("Blabla-blabla-blabla")
@@ -139,6 +147,10 @@ public class Main {
 	    .add("Russian", "menuHelp", "Справка")
 	    .add("English", "menuHelp", "Help")		
 	    .add("Russian", "menuHelpAbout", "О программе")
-	    .add("English", "menuHelpAbout", "About");
+	    .add("English", "menuHelpAbout", "About")
+	    .add("Russian", "closeTabConfirmation", "Закрыть эту вкладку?")
+	    .add("English", "closeTabConfirmation", "Do you want to close the tab?")
+	    .add("Russian", "exitConfirmation", "Выйти из приложения?")
+	    .add("English", "exitConfirmation", "Do you want top exit?");
     }
 }

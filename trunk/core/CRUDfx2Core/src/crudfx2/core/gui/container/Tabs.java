@@ -18,4 +18,5 @@ public class Tabs extends Widget {
     public Tabs() {//BiSet<TabPage> units) {
 	//_pages.bind(units);
     }
+    
 }

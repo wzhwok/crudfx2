@@ -85,7 +85,11 @@ public class NativeTabs extends JTabbedPane {
 		    @Override
 		    public void closeClicked() {
 			//System.out.println("drop "+cur);
-			link.pages().drop(cur);
+			//link.pages().drop(cur);
+			if(cur.approveClosing()){
+			    link.pages().drop(cur);
+			    cur.onClose();
+			}
 		    }
 		};
 		addTab(cur.title().get(), new TabPanel(cur, theme));
