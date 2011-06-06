@@ -49,15 +49,6 @@ public class Ticker {
         Thread t = new Thread() {
 
             public void run() {
-                /*while (current().get().intValue() < count().get().intValue()) {
-                System.out.println(current().get());
-                current().set(current().get() + 1);
-                try {
-                sleep(10);
-                } catch (Throwable t) {
-                t.printStackTrace();
-                }
-                }*/
                 long prev = Calendar.getInstance().getTimeInMillis();
                 long step = (long) (delay().get().intValue());
                 long current;
@@ -72,7 +63,6 @@ public class Ticker {
                         }
                         prev = prev + step;
                         current().set(current().get() + 1);
-                        //System.out.println(current().get());                        
                     }
                     try {
                         sleep(40);
