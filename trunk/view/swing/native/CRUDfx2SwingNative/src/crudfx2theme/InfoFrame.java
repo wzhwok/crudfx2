@@ -67,6 +67,7 @@ public class InfoFrame extends JDialog {
                     @Override
                     public void onFinish() {
                         dispose();
+			current().unbindAll();
                     }
                 }.count(1).delay(5000).start();
             }
