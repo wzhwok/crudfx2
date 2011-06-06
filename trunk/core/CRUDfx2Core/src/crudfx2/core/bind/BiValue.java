@@ -67,6 +67,11 @@ public class BiValue<Kind> {
         this._binded.remove(to);
         to._binded.remove(this);
     }
+    public void unbindAll() {
+        for(int i=0;i<_binded.size();i++){
+	    _binded.get(i).unbind(this);
+	}
+    }
 /*
     public static void main(String[] args) {
         //System.out.println("--- simple binding example");
