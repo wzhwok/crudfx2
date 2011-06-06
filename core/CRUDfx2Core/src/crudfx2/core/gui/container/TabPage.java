@@ -49,4 +49,12 @@ public class TabPage {
     _icon.bind(icon);
     _body.bind(body);
     }*/
+    public void onClose() {
+        //BindTools.saveToHome(key, configuration());
+        //_theme.saveConfiguration(key, _configuration);
+    }
+
+    public boolean approveClosing() {
+        return true;
+    }
 }
