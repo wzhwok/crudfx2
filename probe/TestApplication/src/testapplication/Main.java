@@ -18,8 +18,8 @@ import java.awt.*;
 public class Main {
 
     public static void main(String[] args) {
-	final BaseTheme theme = new crudfx2substance.SuTheme();
-	//final BaseTheme theme = new crudfx2theme.Theme();
+	//final BaseTheme theme = new crudfx2substance.SuTheme();
+	final BaseTheme theme = new crudfx2theme.Theme();
 	final BaseWindow window = new BaseWindow("CrudfxExplorer.xml", theme){
             public void onClose() {
                 theme.log(0, "done");
