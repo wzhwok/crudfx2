@@ -8,10 +8,12 @@ import javax.swing.*;
 import crudfx2theme.nuvola.*;
 
 public class NativeStandardButton extends JButton {
-
+Theme theme;
     StandardButton _unit;
+    
     public NativeStandardButton(StandardButton unit, Theme ntheme) {
 	super("");
+        theme=ntheme;
 	_unit = unit;
 	addActionListener(new ActionListener() {
 
@@ -30,7 +32,7 @@ public class NativeStandardButton extends JButton {
 
 	    @Override
 	    public void onChange(String newValue) {
-		setIcon(IconLoader.icon(_unit.icon().get()));
+		setIcon(theme.icon(_unit.icon().get()));
 	    }
 	};
         if (unit instanceof StandardFlatButton) {

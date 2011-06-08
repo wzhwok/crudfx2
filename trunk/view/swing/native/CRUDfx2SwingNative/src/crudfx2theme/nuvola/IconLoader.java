@@ -5,6 +5,7 @@ import java.io.*;
 import java.io.*;
 import java.awt.*;
 import javax.imageio.*;
+
 public class IconLoader {
 
     private static IconLoader me = null;
@@ -15,7 +16,8 @@ public class IconLoader {
         }
         return me;
     }
-public static Image stream(String s) {
+
+    public static Image stream(String s) {
         InputStream is = null;
         Image image = null;
         try {
@@ -27,13 +29,14 @@ public static Image stream(String s) {
         }
         return image;
     }
-    public static ImageIcon icon(String path) {
+
+    public static ImageIcon icon2(String path) {
         ImageIcon icon = null;
         try {
             File f = new File(path);
             //System.out.println("load "+f.getAbsolutePath());
             if (f.exists()) {
-                 //System.out.println("not found "+f.getAbsolutePath());
+                //System.out.println("not found "+f.getAbsolutePath());
                 icon = new ImageIcon(path);
             } else {
                 icon = new ImageIcon(it().getClass().getResource(path));
@@ -41,7 +44,7 @@ public static Image stream(String s) {
             //icon = new ImageIcon(it().getClass().getResource(path));
         } catch (Throwable t) {
             //t.printStackTrace();
-             //System.out.println("load default");
+            //System.out.println("load default");
             icon = new ImageIcon(it().getClass().getResource("i16x16/player_stop.png"));
         }
         return icon;

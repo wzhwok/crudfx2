@@ -20,11 +20,11 @@ import java.io.*;
 import java.util.*;
 
 public class Theme extends BaseTheme {
-    
+
     protected NativeMainWindow nativeMainWindow = null;
-    protected BaseWindow mainwin=null;
+    protected BaseWindow mainwin = null;
     public static Cursor handCursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
-    
+
     public Theme() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -32,15 +32,15 @@ public class Theme extends BaseTheme {
             t.printStackTrace();
         }
     }
-    
+
     public Wood loadConfiguration(String key) {
         return BindTools.loadFromXMLFile(BindTools.homeFile(key));
     }
-    
+
     public void saveConfiguration(String key, Wood cfg) {
         BindTools.saveToHome(key, cfg);
     }
-    
+
     public boolean confirm(String message) {
         Component c = null;
         String title = "";
@@ -55,7 +55,7 @@ public class Theme extends BaseTheme {
             return false;
         }
     }
-    
+
     public void warn(String message) {
         Component c = null;
         String title = "";
@@ -66,24 +66,24 @@ public class Theme extends BaseTheme {
         JOptionPane.showMessageDialog(c, message, title, JOptionPane.WARNING_MESSAGE);
         //log(0,""+c);
     }
-    
+
     public void inform(String message) {
         /*Component c = null;
         String title = "";
         if (nativeMainWindow != null) {
-            c = nativeMainWindow;
-            title = nativeMainWindow.getTitle();
+        c = nativeMainWindow;
+        title = nativeMainWindow.getTitle();
         }
         JOptionPane.showMessageDialog(c, message, title, JOptionPane.INFORMATION_MESSAGE);*/
-        new InfoFrame(message,this.nativeMainWindow);
+        new InfoFrame(message, this.nativeMainWindow);
     }
 
     public void exit() {
         if (nativeMainWindow != null) {
             //System.out.println(mainwin);
             if (mainwin.approveClosing()) {
-                    System.exit(0);
-                }
+                System.exit(0);
+            }
         }
     }
 
@@ -94,7 +94,7 @@ public class Theme extends BaseTheme {
         System.out.print(": ");
         System.out.println(message);
     }
-    
+
     public JComponent createJComponent(Widget unit) {
         //System.out.println(unit);
         if (unit == null) {
@@ -110,7 +110,7 @@ public class Theme extends BaseTheme {
             return new NativeColorFill((ColorFill) unit, this);
         }
         if (unit instanceof StandardLabel) {
-            return new NativeTextLabel((StandardLabel) unit);
+            return new NativeTextLabel((StandardLabel) unit, this);
         }
         if (unit instanceof JamLeft) {
             return new NativeJamLeft((JamLeft) unit, this);
@@ -137,7 +137,7 @@ public class Theme extends BaseTheme {
             return new NativeSplitTopBottom((SplitTopBottom) unit, this);
         }
         if (unit instanceof StandardTree) {
-            return new NativeTree((StandardTree) unit);
+            return new NativeTree((StandardTree) unit, this);
         }
         if (unit instanceof Hidder) {
             return new NativeHidder((Hidder) unit, this);
@@ -169,20 +169,21 @@ public class Theme extends BaseTheme {
         bad.setForeground(new Color(255, 255, 255));
         return bad;
     }
-    
+
     public ImageIcon icon(String path) {
-        
-        return IconLoader.icon(path);
-        
+
+        //return IconLoader.icon(path);
+        return new ImageIcon(path);
+
     }
-    
+
     public void startup(BaseWindow win) {
         //System.out.println(win);
-        mainwin=win;
+        mainwin = win;
         nativeMainWindow = new NativeMainWindow(win, this);
         //System.out.println(win);
         SwingUtilities.invokeLater(new Runnable() {
-            
+
             public void run() {
                 //nativeMainWindow.setVisible(true);
 
