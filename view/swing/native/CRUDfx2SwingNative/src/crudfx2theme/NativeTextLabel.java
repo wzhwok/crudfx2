@@ -9,7 +9,7 @@ import crudfx2.core.view.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
-import crudfx2theme.nuvola.*;
+//import crudfx2theme.nuvola.*;
 
 public class NativeTextLabel extends JLabel {
 

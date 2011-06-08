@@ -3,7 +3,7 @@ package crudfx2theme;
 import crudfx2.core.gui.*;
 import crudfx2.core.bind.*;
 import crudfx2.core.gui.menu.*;
-import crudfx2theme.nuvola.IconLoader;
+//import crudfx2theme.nuvola.IconLoader;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
