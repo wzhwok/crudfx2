@@ -65,7 +65,7 @@ public class Main {
 			.title("branch 1")
                         .icon("icons/16Places-folder-icon.png")
                 //"i16x16/folder_orange.png")
-                        .openedIcon("i16x16/folder_orange_open.png")
+                        .openedIcon("icons/16Places-folder-documents-icon.png")
 			.treeItem(new TreeLeaf()
 			    .title("sub leaf")
                             .icon("i16x16/services.png")
