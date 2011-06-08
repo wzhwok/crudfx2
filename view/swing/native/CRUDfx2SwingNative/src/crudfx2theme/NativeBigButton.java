@@ -10,9 +10,10 @@ import crudfx2theme.nuvola.*;
 public class NativeBigButton extends JButton {
 
     BigButton _unit;
-
+Theme theme;
     public NativeBigButton(BigButton unit, Theme ntheme) {
         super("");
+        theme=ntheme;
         _unit = unit;
         this.setVerticalTextPosition(AbstractButton.BOTTOM);
         this.setHorizontalTextPosition(AbstractButton.CENTER);
@@ -33,7 +34,7 @@ public class NativeBigButton extends JButton {
 
             @Override
             public void onChange(String newValue) {
-                setIcon(IconLoader.icon(_unit.icon().get()));
+                setIcon(theme.icon(_unit.icon().get()));
             }
         };
         if (unit instanceof BigFlatButton) {

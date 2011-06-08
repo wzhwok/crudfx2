@@ -48,7 +48,7 @@ public class NativeTree extends JScrollPane {
     DefaultMutableTreeNode root = new DefaultMutableTreeNode("");
     DefaultTreeModel model = new DefaultTreeModel(root);
     JTree tree = new JTree();
-
+Theme theme;
     public void dropNode(TreeItem item) {
         model.removeNodeFromParent(findNode(item, root));
     }
@@ -123,7 +123,8 @@ public class NativeTree extends JScrollPane {
         }
     }
 
-    public NativeTree(StandardTree unit) {
+    public NativeTree(StandardTree unit,Theme ntheme) {
+        theme=ntheme;
         final StandardTree link = unit;
         this.getViewport().setOpaque(false);
         this.setOpaque(false);
@@ -160,7 +161,7 @@ public class NativeTree extends JScrollPane {
                         //System.out.println("\tno");
                         if (lf.it.icon().get().length() > 0) {
                             //System.out.println("\t" + lf.it.icon().get());
-                            setIcon(IconLoader.icon(lf.it.icon().get()));
+                            setIcon(theme.icon(lf.it.icon().get()));
                         }
                     }
                 } else {
@@ -171,7 +172,7 @@ public class NativeTree extends JScrollPane {
                                 //System.out.println("\tno");
                                 if (br.it.icon().get().length() > 0) {
                                     //System.out.println("\t" + lf.it.icon().get());
-                                    setIcon(IconLoader.icon(br.it.icon().get()));
+                                    setIcon(theme.icon(br.it.icon().get()));
                                 }
                             }
                         } else {
@@ -179,7 +180,7 @@ public class NativeTree extends JScrollPane {
                                 //System.out.println("\tno");
                                 if (br.it.openedIcon().get().length() > 0) {
                                     //System.out.println("\t" + lf.it.icon().get());
-                                    setIcon(IconLoader.icon(br.it.openedIcon().get()));
+                                    setIcon(theme.icon(br.it.openedIcon().get()));
                                 }
                             }
                         }

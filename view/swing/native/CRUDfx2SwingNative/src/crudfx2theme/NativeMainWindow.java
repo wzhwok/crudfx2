@@ -256,7 +256,7 @@ public class NativeMainWindow extends JFrame {
                     @Override
                     public void onChange(String newValue) {
                         if (mai.icon().get().length() > 0) {
-                            it.setIcon(IconLoader.icon(mai.icon().get()));
+                            it.setIcon(theme.icon(mai.icon().get()));
                         } else {
                             it.setIcon(null);
                         }

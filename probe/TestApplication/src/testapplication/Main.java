@@ -14,11 +14,24 @@ import crudfx2.core.gui.container.*;
 import crudfx2.core.gui.layout.*;
 import crudfx2.core.bind.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
-	final BaseTheme theme = new crudfx2substance.SuTheme();
+	final BaseTheme theme = new crudfx2substance.SuTheme(){
+            @Override public ImageIcon icon(String path) {
+                ImageIcon ii= new ImageIcon(path);
+                //System.out.println(path+": "+ii.getIconWidth());
+                //if(ii==null){
+                if(ii.getIconWidth()<0){
+                    ii=crudfxicons.CRUDfxIcons.icon(path);
+                    }
+                //int n=
+                //System.out.println(path+": "+ii.getIconWidth());
+                return ii;
+                }
+        };
 	//final BaseTheme theme = new crudfx2theme.Theme();
 	final Localization localization=new Localization();
 	final BaseWindow window = new BaseWindow("CrudfxExplorer.xml", theme){
@@ -50,7 +63,8 @@ public class Main {
 			)
 		    .treeItem(new TreeBranch()
 			.title("branch 1")
-                        .icon("i16x16/folder_orange.png")
+                        .icon("icons/16Places-folder-icon.png")
+                //"i16x16/folder_orange.png")
                         .openedIcon("i16x16/folder_orange_open.png")
 			.treeItem(new TreeLeaf()
 			    .title("sub leaf")

@@ -14,8 +14,10 @@ import crudfx2theme.nuvola.*;
 public class NativeTextLabel extends JLabel {
 
     StandardLabel _unit;
-    public NativeTextLabel(StandardLabel unit) {
+     Theme theme;
+    public NativeTextLabel(StandardLabel unit, Theme ntheme) {
 	super();
+        theme = ntheme;
 	_unit = unit;
 	this.setVerticalTextPosition(JLabel.BOTTOM);
 	this.setHorizontalTextPosition(JLabel.CENTER);
@@ -30,7 +32,7 @@ public class NativeTextLabel extends JLabel {
 
 	    @Override
 	    public void onChange(String newValue) {
-		setIcon(IconLoader.icon(_unit.icon().get()));
+		setIcon(theme.icon(_unit.icon().get()));
 	    }
 	};
     }

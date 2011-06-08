@@ -41,11 +41,11 @@ class TabHeader extends JPanel {
 
     public JButton button = new JButton("");
     public JLabel label = new JLabel("label");
-    public TabHeader() {
+    public TabHeader( Theme ntheme) {
 	label.setOpaque(false);
 	button.setPreferredSize(new Dimension(12, 8));
 	button.setToolTipText("close this tab");
-	button.setIcon(crudfx2theme.nuvola.IconLoader.icon("i16x16/small_cancel.png"));
+	button.setIcon(ntheme.icon("i16x16/small_cancel.png"));
 	button.setContentAreaFilled(false);
 	button.setFocusable(false);
 	button.setBorder(BorderFactory.createEtchedBorder());
@@ -80,7 +80,7 @@ public class NativeTabs extends JTabbedPane {
 	    @Override
 	    public void onAdd(TabPage item) {
 		final TabPage cur = item;
-		final TabHeader head = new TabHeader() {
+		final TabHeader head = new TabHeader(theme) {
 
 		    @Override
 		    public void closeClicked() {
@@ -106,7 +106,7 @@ public class NativeTabs extends JTabbedPane {
 		    @Override
 		    public void onChange(String newValue) {
 			//System.out.println()
-			head.label.setIcon(crudfx2theme.nuvola.IconLoader.icon(cur.icon().get()));
+			head.label.setIcon(theme.icon(cur.icon().get()));
 		    }
 		};
 	    }
