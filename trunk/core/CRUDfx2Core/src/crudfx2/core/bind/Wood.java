@@ -16,6 +16,7 @@ public class Wood {
     private BiValue<Double> _doubl = null;
     public boolean isAttribute = false;
     public boolean isCDATA = false;
+    public boolean isText = false;
 
     public Wood(String branchName) {
         this(branchName,NODE);
