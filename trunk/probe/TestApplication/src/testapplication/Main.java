@@ -44,7 +44,7 @@ static TabPage infoPage=null;
 	    .title(localization.get("applicationTitle"))
 	    .footer(createFooter(localization,theme))
 	    .body(createBody(localization,theme))
-	    .icon("icon16.png")
+	    .icon(crudfxicons.CRUDfxIcons.i32Devices_computer_icon)
 	    .menuPad(createFileMenu(localization,theme))
 	    .menuPad(createHelpMenu(localization,theme))
 	    .toolbar(createToolbar(localization,theme));	
@@ -55,19 +55,21 @@ static TabPage infoPage=null;
 	final BaseTheme ftheme=theme;
 	final Localization flocalization=localization;
 	final Tabs ftabs=tabs;
+	//System.out.println(crudfxicons.CRUDfxIcons.i16Actions_document_decrypt_icon);
 	return new StandardTree()
 		    .treeItem(new TreeLeaf()
 			.title("leaf 1")
-			.icon("i16x16/filenew.png")
+			.icon(crudfxicons.CRUDfxIcons.i16Actions_document_decrypt_icon)
+		//"i16x16/filenew.png")
 			)
 		    .treeItem(new TreeBranch()
 			.title("branch 1")
-                        .icon("icons/16Places-folder-icon.png")
+                        .icon(crudfxicons.CRUDfxIcons.i16Places_folder_icon)
                 //"i16x16/folder_orange.png")
-                        .openedIcon("icons/16Places-folder-documents-icon.png")
+                        .openedIcon(crudfxicons.CRUDfxIcons.i16Places_folder_documents_icon)
 			.treeItem(new TreeLeaf()
 			    .title("sub leaf")
-                            .icon("i16x16/services.png")
+                            .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
 			    )
 			)
 		    .treeItem(new TreeLeaf(){
@@ -86,14 +88,14 @@ static TabPage infoPage=null;
 				    .title("info")
 				    .body(new StandardLabel()
 					.title("Blabla-blabla-blabla")
-					.icon("i32x32/core.png")
+					.icon(crudfxicons.CRUDfxIcons.i128Actions_view_statistics_icon)
 					);
 				    }
 				    ftabs.current(infoPage);
 				}
 			    }
 			.title("add test page")
-                        .icon("i16x16/kcmdf.png")
+                        .icon(crudfxicons.CRUDfxIcons.i16Status_user_invisible_icon)
 			);
     }
     static Widget createBody(Localization localization,BaseTheme theme){
@@ -104,14 +106,14 @@ static TabPage infoPage=null;
 			.title("Test2")
 			.body(new StandardLabel()
 			    .title("2")
-			    .icon("i32x32/core.png")
+			    .icon(crudfxicons.CRUDfxIcons.i128Apps_system_users_icon)
 			    )
 			)
 		    .page(new TabPage()
 			.title("Test3")
 			.body(new StandardLabel()
 			    .title("333")
-			    .icon("i32x32/core.png")
+			    .icon(crudfxicons.CRUDfxIcons.i128Actions_edit_select_all_icon)
 			    )
 			)
 		    ;
@@ -153,7 +155,7 @@ static TabPage infoPage=null;
 			}
 		    }
 		.title(localization.get("menuHelpAbout"))
-		.icon("i16x16/messagebox_info.png"));
+		.icon(crudfxicons.CRUDfxIcons.i16Actions_edit_paste_icon));
 	}
     static MenuPad createFileMenu(Localization localization,BaseTheme theme){
 	final BaseTheme ftheme=theme;
@@ -194,7 +196,7 @@ static TabPage infoPage=null;
 			}
 		    }
 		.title(localization.get("menuFileExit"))
-		.icon("i16x16/undo.png"));	
+		.icon(crudfxicons.CRUDfxIcons.i16Actions_page_zoom_icon));	
     }
     static void setupLocalization(Localization localization){
         localization
