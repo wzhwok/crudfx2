@@ -19,7 +19,8 @@ import javax.swing.*;
 public class Main {
 static TabPage infoPage=null;
     public static void main(String[] args) {
-	/*final BaseTheme theme = new crudfx2substance.SuTheme(){
+	//final BaseTheme theme = new crudfx2theme.Theme(){
+	final BaseTheme theme = new crudfx2substance.SuTheme(){
             @Override public ImageIcon icon(String path) {
                 ImageIcon ii= new ImageIcon(path);
                 if(ii.getIconWidth()<0){
@@ -27,17 +28,9 @@ static TabPage infoPage=null;
                     }
                 return ii;
                 }
-        };*/
-	final BaseTheme theme = new crudfx2theme.Theme(){
-            @Override public ImageIcon icon(String path) {
-                ImageIcon ii= new ImageIcon(path);
-                if(ii.getIconWidth()<0){
-                    ii=crudfxicons.CRUDfxIcons.icon(path);
-                    }
-                return ii;
-                }
-        };
+	    };
 	final Localization localization=new Localization();
+	setupLocalization(localization);
 	final BaseWindow window = new BaseWindow("CrudfxExplorer.xml", theme){
 	    @Override public void onClose() {
                 theme.log(0, "done");
@@ -46,34 +39,23 @@ static TabPage infoPage=null;
                 return theme.confirm(localization.get("exitConfirmation").get());
                 }
             };
-	
 	localization.current(window.configuration().find("properies").find("language").find("").asString("English"));
-	setupLocalization(localization);
-	
-	//final TabPage info
-	final Tabs tabs=new Tabs()		    
-		    .current(new TabPage()
-			.title("Test2")
-			.body(new StandardLabel()
-			    .title("2")
-			    .icon("i32x32/core.png")
-			    )
-			)
-		    .page(new TabPage()
-			.title("Test3")
-			.body(new StandardLabel()
-			    .title("333")
-			    .icon("i32x32/core.png")
-			    )
-			)
-		    ;
 	window
 	    .title(localization.get("applicationTitle"))
-	    .footer(new StandardLabel()
-		.title("...")
-		)
-	    .body(new SplitLeftRight()
-		.left(new StandardTree()
+	    .footer(createFooter(localization,theme))
+	    .body(createBody(localization,theme))
+	    .icon("icon16.png")
+	    .menuPad(createFileMenu(localization,theme))
+	    .menuPad(createHelpMenu(localization,theme))
+	    .toolbar(createToolbar(localization,theme));	
+        theme.log(0, "start");
+	theme.startup(window);
+    }
+    static StandardTree createTree(Localization localization,BaseTheme theme,Tabs tabs){
+	final BaseTheme ftheme=theme;
+	final Localization flocalization=localization;
+	final Tabs ftabs=tabs;
+	return new StandardTree()
 		    .treeItem(new TreeLeaf()
 			.title("leaf 1")
 			.icon("i16x16/filenew.png")
@@ -92,13 +74,13 @@ static TabPage infoPage=null;
 			    @Override public void onClick(){
 				//System.out.println("click");
 				if(infoPage==null){
-				    System.out.println("create");
+				    //System.out.println("create");
 				    infoPage=new TabPage(){
 					@Override public boolean approveClosing() {
-					    return theme.confirm(localization.get("closeTabConfirmation").get());
+					    return ftheme.confirm(flocalization.get("closeTabConfirmation").get());
 					    }
 					@Override public void onClose() {
-					    theme.log(0, "tab closed");
+					    ftheme.log(0, "tab closed");
 					    }
 					}
 				    .title("info")
@@ -107,42 +89,61 @@ static TabPage infoPage=null;
 					.icon("i32x32/core.png")
 					);
 				    }
-				    tabs.current(infoPage);
+				    ftabs.current(infoPage);
 				}
 			    }
 			.title("add test page")
                         .icon("i16x16/kcmdf.png")
-			)
-		    )
-		.right(tabs)
-		)
-	    .icon("icon16.png")
-	    .menuPad(fileMenu(localization,theme))
-	    .menuPad(helpMenu(localization,theme))
-	.toolbar(new SuiteHorizontal()
-		.item(new BigFlatButton(){
-		    @Override public void onClick() {
-			localization.current().set("English");
-			}
-		    }
-		    .title(localization.get("menuFileLanguageEnglish"))
-		    .icon("images/en.png")
-		    )
-		.item(new BigFlatButton(){
-		    @Override public void onClick() {
-			localization.current().set("Russian");
-			}
-		    }
-		    .title(localization.get("menuFileLanguageRussian"))
-		    .icon("images/ru.png")
-		    )
-		)
-	    ;
-	
-        theme.log(0, "start");
-	theme.startup(window);
+			);
     }
-    static MenuPad helpMenu(Localization localization,BaseTheme theme){
+    static Widget createBody(Localization localization,BaseTheme theme){
+	final BaseTheme ftheme=theme;
+	final Localization flocalization=localization;
+	final Tabs tabs=new Tabs()		    
+		    .current(new TabPage()
+			.title("Test2")
+			.body(new StandardLabel()
+			    .title("2")
+			    .icon("i32x32/core.png")
+			    )
+			)
+		    .page(new TabPage()
+			.title("Test3")
+			.body(new StandardLabel()
+			    .title("333")
+			    .icon("i32x32/core.png")
+			    )
+			)
+		    ;
+	return new SplitLeftRight()
+		.left(createTree(localization,theme,tabs))
+		.right(tabs);
+	}
+    static Widget createFooter(Localization localization,BaseTheme theme){
+	return new StandardLabel()
+		.title("...");
+	}
+    static Widget createToolbar(Localization localization,BaseTheme theme){
+	final Localization flocalization=localization;
+	return new SuiteHorizontal()
+	    .item(new BigFlatButton(){
+		@Override public void onClick() {
+		    flocalization.current().set("English");
+		    }
+		}
+		.title(localization.get("menuFileLanguageEnglish"))
+		.icon("images/en.png")
+		)
+	    .item(new BigFlatButton(){
+		@Override public void onClick() {
+		    flocalization.current().set("Russian");
+		    }
+		}
+		.title(localization.get("menuFileLanguageRussian"))
+		.icon("images/ru.png")
+		);
+	}
+    static MenuPad createHelpMenu(Localization localization,BaseTheme theme){
 	final BaseTheme ftheme=theme;
 	return new MenuPad()
 	    .title(localization.get("menuHelp"))
@@ -154,7 +155,7 @@ static TabPage infoPage=null;
 		.title(localization.get("menuHelpAbout"))
 		.icon("i16x16/messagebox_info.png"));
 	}
-    static MenuPad fileMenu(Localization localization,BaseTheme theme){
+    static MenuPad createFileMenu(Localization localization,BaseTheme theme){
 	final BaseTheme ftheme=theme;
 	final Localization flocalization=localization;
 	//final BiValue<String> current=new BiValue<String> (localization.current());
