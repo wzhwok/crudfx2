@@ -72,6 +72,15 @@ static TabPage infoPage=null;
                             .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
 			    )
 			)
+		    .treeItem(new TreeBranch()
+			.title(localization.get("treeMenuIcons"))
+                        .icon(crudfxicons.CRUDfxIcons.i16Places_folder_icon)
+                        .openedIcon(crudfxicons.CRUDfxIcons.i16Places_folder_documents_icon)
+			.treeItem(new TreeLeaf()
+			    .title("sub leaf")
+                            .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
+			    )
+			)
 		    .treeItem(new TreeLeaf(){
 			    @Override public void onClick(){
 				//System.out.println("click");
@@ -82,7 +91,7 @@ static TabPage infoPage=null;
 					    return ftheme.confirm(flocalization.get("closeTabConfirmation").get());
 					    }
 					@Override public void onClose() {
-					    ftheme.log(0, "tab closed");
+					    //ftheme.log(0, "tab closed");
 					    }
 					}
 				    .title("info")
@@ -219,6 +228,8 @@ static TabPage infoPage=null;
 	    .add("Russian", "closeTabConfirmation", "Закрыть эту вкладку?")
 	    .add("English", "closeTabConfirmation", "Do you want to close the tab?")
 	    .add("Russian", "exitConfirmation", "Выйти из приложения?")
-	    .add("English", "exitConfirmation", "Do you want to exit?");
+	    .add("English", "exitConfirmation", "Do you want to exit?")
+	    .add("Russian", "treeMenuIcons", "Иконки")
+	    .add("English", "treeMenuIcons", "Icons");
     }
 }
