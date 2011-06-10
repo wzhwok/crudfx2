@@ -111,7 +111,7 @@ static TabPage infoPage=null;
 	final BaseTheme ftheme=theme;
 	final Localization flocalization=localization;
 	final Tabs tabs=new Tabs()		    
-		    .current(new TabPage()
+		    .page(new TabPage()
 			.title("Test2")
 			.body(new StandardLabel()
 			    .title("2")
@@ -124,6 +124,10 @@ static TabPage infoPage=null;
 			    .title("333")
 			    .icon(crudfxicons.CRUDfxIcons.i128Actions_edit_select_all_icon)
 			    )
+			)
+		    .current(new TabPage()
+			.title("Crowd")
+			.body(new SuiteCrowd())
 			)
 		    ;
 	return new SplitLeftRight()
