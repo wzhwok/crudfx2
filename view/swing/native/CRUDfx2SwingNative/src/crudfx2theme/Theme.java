@@ -155,6 +155,9 @@ public class Theme extends BaseTheme {
 	if (unit instanceof Center) {
 	    return new NativeCenter((Center) unit, this);
 	}
+	if (unit instanceof SuiteCrowd) {
+	    return new NativeSuiteCrowd((SuiteCrowd) unit, this);
+	}
 	JLabel bad = new JLabel(unit.getClass().getName());
 	bad.setOpaque(true);
 	bad.setBackground(new Color(150, 0, 0));
