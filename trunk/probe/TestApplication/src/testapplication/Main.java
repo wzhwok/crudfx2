@@ -17,7 +17,11 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Main {
-static TabPage infoPage=null;
+    static TabPage infoPage=null;
+    static TabPage icons16=null;
+    static TabPage icons32=null;
+    static TabPage icons128=null;
+    static TabPage iconsAll=null;
     public static void main(String[] args) {
 	//final BaseTheme theme = new crudfx2theme.Theme(){
 	final BaseTheme theme = new crudfx2substance.SuTheme(){
@@ -76,8 +80,33 @@ static TabPage infoPage=null;
 			.title(localization.get("treeMenuIcons"))
                         .icon(crudfxicons.CRUDfxIcons.i16Places_folder_icon)
                         .openedIcon(crudfxicons.CRUDfxIcons.i16Places_folder_documents_icon)
-			.treeItem(new TreeLeaf()
-			    .title("sub leaf")
+			.treeItem(new TreeLeaf(){
+				@Override public void onClick(){
+				    ftabs.current(getPageIcons16());
+				    }
+				}
+			    .title("16x16")
+                            .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
+			    )
+		    .treeItem(new TreeLeaf(){
+				@Override public void onClick(){
+				    }
+				}
+			    .title("32x32")
+                            .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
+			    )
+		    .treeItem(new TreeLeaf(){
+				@Override public void onClick(){
+				    }
+				}
+			    .title("128x128")
+                            .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
+			    )
+		    .treeItem(new TreeLeaf(){
+				@Override public void onClick(){
+				    }
+				}
+			    .title(localization.get("treeMenuIconsAll"))
                             .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
 			    )
 			)
@@ -127,7 +156,7 @@ static TabPage infoPage=null;
 			)
 		    .current(new TabPage()
 			.title("Crowd")
-			.body(new SuiteCrowd()
+			/*.body(new SuiteCrowd()
 			    .item(new StandardButton()
 				.title("123")
 				)
@@ -149,7 +178,7 @@ static TabPage infoPage=null;
 			    .item(new StandardButton()
 				.title("77")
 				)
-			    )
+			    )*/
 			)
 		    ;
 	return new SplitLeftRight()
@@ -233,6 +262,29 @@ static TabPage infoPage=null;
 		.title(localization.get("menuFileExit"))
 		.icon(crudfxicons.CRUDfxIcons.i16Actions_page_zoom_icon));	
     }
+    static TabPage getPageIcons16(){
+	if(icons16==null){
+	    icons16=new TabPage()
+		.title("16x16")
+		//.body(new ScrollBox()
+		    .body(new SuiteCrowd()
+			.item(new StandardButton().title("0sdfbsdfb452452"))
+			.item(new StandardButton().title("1sdfbsd1fb"))
+			.item(new StandardButton().title("2sdfbsdfb"))
+			.item(new StandardButton().title("3sdfbsdfb"))
+			.item(new StandardButton().title("4sdfbsdfb"))
+			.item(new StandardButton().title("5sdfbsdfb"))
+			.item(new StandardButton().title("6sdfbsdfb"))
+			.item(new StandardButton().title("7sdfbsdfb"))
+			.item(new StandardButton().title("8sdfbsdfb"))
+			.item(new StandardButton().title("9sdfbsdfb"))
+			//.item(new StandardButton().title("10sdfbsdfb"))
+			)
+		    //)
+		;
+	    }
+	return icons16;
+	}
     static void setupLocalization(Localization localization){
         localization
 	    .add("Russian", "applicationTitle", "Палитра компонентов")
@@ -256,6 +308,9 @@ static TabPage infoPage=null;
 	    .add("Russian", "exitConfirmation", "Выйти из приложения?")
 	    .add("English", "exitConfirmation", "Do you want to exit?")
 	    .add("Russian", "treeMenuIcons", "Иконки")
-	    .add("English", "treeMenuIcons", "Icons");
+	    .add("English", "treeMenuIcons", "Icons")
+	    .add("Russian", "treeMenuIconsAll", "Все размеры")
+	    .add("English", "treeMenuIconsAll", "All sizes")
+	    ;
     }
 }
