@@ -15,7 +15,7 @@ import crudfx2.core.gui.layout.*;
 import crudfx2.core.bind.*;
 import java.awt.*;
 import javax.swing.*;
-
+import crudfxicons.*;
 public class Main {
     static TabPage infoPage=null;
     static TabPage icons16=null;
@@ -28,7 +28,7 @@ public class Main {
             @Override public ImageIcon icon(String path) {
                 ImageIcon ii= new ImageIcon(path);
                 if(ii.getIconWidth()<0){
-                    ii=crudfxicons.CRUDfxIcons.icon(path);
+                    ii=CRUDfxIcons.icon(path);
                     }
                 return ii;
                 }
@@ -48,7 +48,7 @@ public class Main {
 	    .title(localization.get("applicationTitle"))
 	    .footer(createFooter(localization,theme))
 	    .body(createBody(localization,theme))
-	    .icon(crudfxicons.CRUDfxIcons.i32Devices_computer_icon)
+	    .icon(CRUDfxIcons.i32Devices_computer_icon)
 	    .menuPad(createFileMenu(localization,theme))
 	    .menuPad(createHelpMenu(localization,theme))
 	    .toolbar(createToolbar(localization,theme));	
@@ -63,51 +63,51 @@ public class Main {
 	return new StandardTree()
 		    .treeItem(new TreeLeaf()
 			.title("leaf 1")
-			.icon(crudfxicons.CRUDfxIcons.i16Actions_document_decrypt_icon)
+			.icon(CRUDfxIcons.i16Actions_document_decrypt_icon)
 		//"i16x16/filenew.png")
 			)
 		    .treeItem(new TreeBranch()
 			.title("branch 1")
-                        .icon(crudfxicons.CRUDfxIcons.i16Places_folder_icon)
+                        .icon(CRUDfxIcons.i16Places_folder_icon)
                 //"i16x16/folder_orange.png")
                         .openedIcon(crudfxicons.CRUDfxIcons.i16Places_folder_documents_icon)
 			.treeItem(new TreeLeaf()
 			    .title("sub leaf")
-                            .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
+                            .icon(CRUDfxIcons.i16Actions_edit_delete_icon)
 			    )
 			)
 		    .treeItem(new TreeBranch()
 			.title(localization.get("treeMenuIcons"))
-                        .icon(crudfxicons.CRUDfxIcons.i16Places_folder_icon)
-                        .openedIcon(crudfxicons.CRUDfxIcons.i16Places_folder_documents_icon)
+                        .icon(CRUDfxIcons.i16Places_folder_icon)
+                        .openedIcon(CRUDfxIcons.i16Places_folder_documents_icon)
 			.treeItem(new TreeLeaf(){
 				@Override public void onClick(){
 				    ftabs.current(getPageIcons16());
 				    }
 				}
 			    .title("16x16")
-                            .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
+                            .icon(CRUDfxIcons.i16Actions_edit_delete_icon)
 			    )
 		    .treeItem(new TreeLeaf(){
 				@Override public void onClick(){
 				    }
 				}
 			    .title("32x32")
-                            .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
+                            .icon(CRUDfxIcons.i16Actions_edit_delete_icon)
 			    )
 		    .treeItem(new TreeLeaf(){
 				@Override public void onClick(){
 				    }
 				}
 			    .title("128x128")
-                            .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
+                            .icon(CRUDfxIcons.i16Actions_edit_delete_icon)
 			    )
 		    .treeItem(new TreeLeaf(){
 				@Override public void onClick(){
 				    }
 				}
 			    .title(localization.get("treeMenuIconsAll"))
-                            .icon(crudfxicons.CRUDfxIcons.i16Actions_edit_delete_icon)
+                            .icon(CRUDfxIcons.i16Actions_edit_delete_icon)
 			    )
 			)
 		    .treeItem(new TreeLeaf(){
@@ -126,14 +126,14 @@ public class Main {
 				    .title("info")
 				    .body(new StandardLabel()
 					.title("Blabla-blabla-blabla")
-					.icon(crudfxicons.CRUDfxIcons.i128Actions_view_statistics_icon)
+					.icon(CRUDfxIcons.i128Actions_view_statistics_icon)
 					);
 				    }
 				    ftabs.current(infoPage);
 				}
 			    }
 			.title("add test page")
-                        .icon(crudfxicons.CRUDfxIcons.i16Status_user_invisible_icon)
+                        .icon(CRUDfxIcons.i16Status_user_invisible_icon)
 			);
     }
     static Widget createBody(Localization localization,BaseTheme theme){
@@ -144,14 +144,14 @@ public class Main {
 			.title("Test2")
 			.body(new StandardLabel()
 			    .title("2")
-			    .icon(crudfxicons.CRUDfxIcons.i128Apps_system_users_icon)
+			    .icon(CRUDfxIcons.i128Apps_system_users_icon)
 			    )
 			)
 		    .page(new TabPage()
 			.title("Test3")
 			.body(new StandardLabel()
 			    .title("333")
-			    .icon(crudfxicons.CRUDfxIcons.i128Actions_edit_select_all_icon)
+			    .icon(CRUDfxIcons.i128Actions_edit_select_all_icon)
 			    )
 			)
 		    .current(new TabPage()
@@ -219,7 +219,7 @@ public class Main {
 			}
 		    }
 		.title(localization.get("menuHelpAbout"))
-		.icon(crudfxicons.CRUDfxIcons.i16Actions_edit_paste_icon));
+		.icon(CRUDfxIcons.i16Actions_edit_paste_icon));
 	}
     static MenuPad createFileMenu(Localization localization,BaseTheme theme){
 	final BaseTheme ftheme=theme;
@@ -260,7 +260,7 @@ public class Main {
 			}
 		    }
 		.title(localization.get("menuFileExit"))
-		.icon(crudfxicons.CRUDfxIcons.i16Actions_page_zoom_icon));	
+		.icon(CRUDfxIcons.i16Actions_page_zoom_icon));	
     }
     static TabPage getPageIcons16(){
 	if(icons16==null){
@@ -278,7 +278,22 @@ public class Main {
 			.item(new StandardButton().title("7sdfbsdfb"))
 			.item(new StandardButton().title("8sdfbsdfb"))
 			.item(new StandardButton().title("9sdfbsdfb"))
-			//.item(new StandardButton().title("10sdfbsdfb"))
+			.item(new StandardButton().title("10sdfbsdfb"))
+                        .item(new StandardButton().title("1"))
+                        .item(new StandardButton().title("2"))
+                        .item(new StandardButton().title("3"))
+                        .item(new StandardButton().title("4"))
+                        .item(new StandardButton().title("5"))
+                        .item(new StandardButton().title("6"))
+                        .item(new StandardButton().title("7"))
+                        .item(new StandardButton().title("8"))
+                        .item(new StandardButton().title("9"))
+                        .item(new StandardButton().title("0"))
+                        .item(new StandardButton().title("-"))
+                        .item(new StandardButton().title("1"))
+                        .item(new StandardButton().title("2"))
+                        .item(new StandardButton().title("3"))
+                        .item(new StandardButton().title("4"))                    
 			)
 		    //)
 		;
