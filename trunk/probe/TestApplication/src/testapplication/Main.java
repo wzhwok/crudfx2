@@ -10,18 +10,19 @@ import crudfx2.core.gui.menu.*;
 import crudfx2.core.gui.control.*;
 import crudfx2.core.gui.control.tree.*;
 import crudfx2.core.gui.container.*;
-//import crudfx2.core.gui.toolbar.*;
+import testapplication.pages.*;
 import crudfx2.core.gui.layout.*;
 import crudfx2.core.bind.*;
 import java.awt.*;
 import javax.swing.*;
 import crudfxicons.*;
+
 public class Main {
     static TabPage infoPage=null;
-    static TabPage icons16=null;
+    /*static TabPage icons16=null;
     static TabPage icons32=null;
     static TabPage icons128=null;
-    static TabPage iconsAll=null;
+    static TabPage iconsAll=null;*/
     public static void main(String[] args) {
 	//final BaseTheme theme = new crudfx2theme.Theme(){
 	final BaseTheme theme = new crudfx2substance.SuTheme(){
@@ -82,26 +83,26 @@ public class Main {
                         .openedIcon(CRUDfxIcons.i16_folder_documents)
 			.treeItem(new TreeLeaf(){
 				@Override public void onClick(){
-				    ftabs.current(getPageIcons16());
+				    ftabs.current(Icons16.get());
 				    }
 				}
-			    .title("16x16")
+			    .title("16 x 16")
                             .icon(CRUDfxIcons.i16_copy)
 			    )
 		    .treeItem(new TreeLeaf(){
 				@Override public void onClick(){
-                                    ftabs.current(getPageIcons32());
+                                    ftabs.current(Icons32.get());
 				    }
 				}
-			    .title("32x32")
+			    .title("32 x 32")
                             .icon(CRUDfxIcons.i16_copy)
 			    )
 		    .treeItem(new TreeLeaf(){
 				@Override public void onClick(){
-                                    ftabs.current(getPageIcons128());
+                                    ftabs.current(Icons128.get());
 				    }
 				}
-			    .title("128x128")
+			    .title("128 x 128")
                             .icon(CRUDfxIcons.i16_copy)
 			    )
 			)
@@ -257,7 +258,7 @@ public class Main {
 		.title(localization.get("menuFileExit"))
 		.icon(CRUDfxIcons.i16_zoom));	
     }
-    static TabPage getPageIcons32(){
+    /*static TabPage getPageIcons32(){
 	if(icons32==null){
 	    icons32=new TabPage()
 		.title("32x32")
@@ -401,7 +402,7 @@ public class Main {
 		;
 	    }
 	return icons16;
-	}
+	}*/
     static void setupLocalization(Localization localization){
         localization
 	    .add("Russian", "applicationTitle", "Палитра компонентов")
