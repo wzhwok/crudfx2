@@ -18,7 +18,7 @@ import javax.swing.*;
 import crudfxicons.*;
 
 public class Main {
-    static TabPage infoPage=null;
+    //static TabPage infoPage=null;
     /*static TabPage icons16=null;
     static TabPage icons32=null;
     static TabPage icons128=null;
@@ -60,23 +60,21 @@ public class Main {
 	final BaseTheme ftheme=theme;
 	final Localization flocalization=localization;
 	final Tabs ftabs=tabs;
-	//System.out.println(crudfxicons.CRUDfxIcons.i16_document_decrypt_icon);
 	return new StandardTree()
-		    .treeItem(new TreeLeaf()
-			.title("leaf 1")
-			.icon(CRUDfxIcons.i16_decrypt)
-		//"i16x16/filenew.png")
-			)
-		    .treeItem(new TreeBranch()
-			.title("branch 1")
-                        .icon(CRUDfxIcons.i16_folder)
-                //"i16x16/folder_orange.png")
-                        .openedIcon(crudfxicons.CRUDfxIcons.i16_folder_documents)
-			.treeItem(new TreeLeaf()
-			    .title("sub leaf")
-                            .icon(CRUDfxIcons.i16_delete)
+                    .treeItem(new TreeBranch()
+			.title("Visual components")
+			.treeItem(new TreeBranch()
+			    .title("General controls")
+                            .treeItem(new TreeLeaf(){
+                                    @Override public void onClick(){
+                                        ftabs.current(Alert.get(ftheme));
+                                        }
+                                    }
+                                .title("Alert")
+                                .icon(CRUDfxIcons.i16_system)
+                                )
 			    )
-			)
+			) 
 		    .treeItem(new TreeBranch()
 			.title(localization.get("treeMenuIcons"))
                         .icon(CRUDfxIcons.i16_folder)
@@ -89,54 +87,56 @@ public class Main {
 			    .title("16 x 16")
                             .icon(CRUDfxIcons.i16_copy)
 			    )
-		    .treeItem(new TreeLeaf(){
-				@Override public void onClick(){
-                                    ftabs.current(Icons32.get());
-				    }
-				}
-			    .title("32 x 32")
-                            .icon(CRUDfxIcons.i16_copy)
-			    )
-		    .treeItem(new TreeLeaf(){
-				@Override public void onClick(){
-                                    ftabs.current(Icons128.get());
-				    }
-				}
-			    .title("128 x 128")
-                            .icon(CRUDfxIcons.i16_copy)
-			    )
+                        .treeItem(new TreeLeaf(){
+                                    @Override public void onClick(){
+                                        ftabs.current(Icons32.get());
+                                        }
+                                    }
+                                .title("32 x 32")
+                                .icon(CRUDfxIcons.i16_copy)
+                                )
+                        .treeItem(new TreeLeaf(){
+                                    @Override public void onClick(){
+                                        ftabs.current(Icons128.get());
+                                        }
+                                    }
+                                .title("128 x 128")
+                                .icon(CRUDfxIcons.i16_copy)
+                                )
 			)
 		    .treeItem(new TreeLeaf(){
 			    @Override public void onClick(){
-				//System.out.println("click");
-				if(infoPage==null){
-				    //System.out.println("create");
+				/*if(infoPage==null){
 				    infoPage=new TabPage(){
 					@Override public boolean approveClosing() {
-					    return ftheme.confirm(flocalization.get("closeTabConfirmation").get());
+					    return false;//ftheme.confirm(flocalization.get("closeTabConfirmation").get());
 					    }
 					@Override public void onClose() {
-					    //ftheme.log(0, "tab closed");
+					    //
 					    }
 					}
-				    .title("info")
+				    .title("Information")
 				    .body(new StandardLabel()
 					.title("Blabla-blabla-blabla")
 					.icon(CRUDfxIcons.i128_statistics)
 					);
 				    }
-				    ftabs.current(infoPage);
+				    ftabs.current(infoPage);*/
+                                ftabs.current(Info.get());
 				}
 			    }
-			.title("add test page")
-                        .icon(CRUDfxIcons.i16_user_invisible)
+			.title("Information")
+                        .icon(CRUDfxIcons.i16_favorites)
 			);
     }
     static Widget createBody(Localization localization,BaseTheme theme){
 	final BaseTheme ftheme=theme;
 	final Localization flocalization=localization;
-	final Tabs tabs=new Tabs()		    
-		    .page(new TabPage()
+	final Tabs tabs=new Tabs()	
+                .page(Info.get());
+                
+                
+		   /* .page(new TabPage()
 			.title("Test2")
 			.body(new StandardLabel()
 			    .title("2")
@@ -151,7 +151,7 @@ public class Main {
 			    )
 			)
 		    .current(new TabPage()
-			.title("Crowd")
+			.title("Crowd")*/
 			/*.body(new SuiteCrowd()
 			    .item(new StandardButton()
 				.title("123")
@@ -175,8 +175,8 @@ public class Main {
 				.title("77")
 				)
 			    )*/
-			)
-		    ;
+			//)
+		    //;
 	return new SplitLeftRight()
 		.left(createTree(localization,theme,tabs))
 		.right(tabs);
