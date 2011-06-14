@@ -49,7 +49,7 @@ public class Main {
 	    .title(localization.get("applicationTitle"))
 	    .footer(createFooter(localization,theme))
 	    .body(createBody(localization,theme))
-	    .icon(CRUDfxIcons.i16_computer)
+	    .icon(CRUDfxIcons.i32_system)
 	    .menuPad(createFileMenu(localization,theme))
 	    .menuPad(createHelpMenu(localization,theme))
 	    .toolbar(createToolbar(localization,theme));	
