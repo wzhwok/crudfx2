@@ -34,6 +34,33 @@ public class Theme extends BaseTheme {
     public void saveConfiguration(String key, Wood cfg) {
 	BindTools.saveToHome(key, cfg);
     }
+    public void hide() {
+	try {
+	    final SystemTray tray = SystemTray.getSystemTray();
+	    final TrayIcon trayIcon = new TrayIcon(nativeMainWindow.getIconImage(), nativeMainWindow.getTitle());
+	    tray.add(trayIcon);
+	    trayIcon.addActionListener(new ActionListener() {
+
+		public void actionPerformed(ActionEvent e) {
+		    //System.out.println("click");
+		    nativeMainWindow.setVisible(true);
+		    nativeMainWindow.requestFocus();
+		    tray.remove(trayIcon);
+		}
+	    });
+	    trayIcon.addMouseListener(new MouseAdapter() {
+
+		public void mouseClicked(MouseEvent e) {
+		    nativeMainWindow.setVisible(true);
+		    nativeMainWindow.requestFocus();
+		    tray.remove(trayIcon);
+		}
+	    });
+	    nativeMainWindow.setVisible(false);
+	} catch (Throwable t) {
+	    this.log(0, t);
+	}
+    }
     public boolean confirm(String message) {
 	Component c = null;
 	String title = "";

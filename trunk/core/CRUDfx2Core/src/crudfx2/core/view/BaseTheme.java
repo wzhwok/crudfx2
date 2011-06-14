@@ -13,4 +13,5 @@ public abstract class BaseTheme {
     public abstract void warn(String message);
     public abstract void inform(String message);
     public abstract void log(int key,String message);
+    public abstract void hide();
 }
