@@ -35,6 +35,8 @@ public class Theme extends BaseTheme {
 	BindTools.saveToHome(key, cfg);
     }
     public void hide() {
+	if(nativeMainWindow==null)return;
+	if(!nativeMainWindow.isVisible())return;
 	try {
 	    final SystemTray tray = SystemTray.getSystemTray();
 	    final TrayIcon trayIcon = new TrayIcon(nativeMainWindow.getIconImage(), nativeMainWindow.getTitle());
