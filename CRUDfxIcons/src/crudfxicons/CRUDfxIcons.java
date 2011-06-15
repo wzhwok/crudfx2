@@ -43,6 +43,11 @@ public class CRUDfxIcons {
     public static String i128_user_away = "icons/128Status-user-away-icon.png";
     public static String i128_user_invisible = "icons/128Status-user-invisible-icon.png";
     public static String i128_user_online = "icons/128Status-user-online-icon.png";
+    
+    public static String i128_information = "icons/128Status-dialog-information-icon.png";
+    public static String i128_important = "icons/128Emblems-emblem-important-icon.png";
+    public static String i128_dictionary = "icons/128Apps-accessories-dictionary-icon.png";
+    public static String i128_chart = "icons/128Actions-office-chart-area-stacked-icon.png";
     //
     public static String i16_ok_apply = "icons/16Actions-dialog-ok-apply-icon.png";
     public static String i16_decrypt = "icons/16Actions-document-decrypt-icon.png";
@@ -83,6 +88,11 @@ public class CRUDfxIcons {
     public static String i16_user_away = "icons/16Status-user-away-icon.png";
     public static String i16_user_invisible = "icons/16Status-user-invisible-icon.png";
     public static String i16_user_online = "icons/16Status-user-online-icon.png";
+    
+    public static String i16_information = "icons/16Status-dialog-information-icon.png";
+    public static String i16_important = "icons/16Emblems-emblem-important-icon.png";
+    public static String i16_dictionary = "icons/16Apps-accessories-dictionary-icon.png";
+    public static String i16_chart = "icons/16Actions-office-chart-area-stacked-icon.png";
     //
     public static String i32_ok_apply = "icons/32Actions-dialog-ok-apply-icon.png";
     public static String i32_decrypt = "icons/32Actions-document-decrypt-icon.png";
@@ -123,6 +133,12 @@ public class CRUDfxIcons {
     public static String i32_user_away = "icons/32Status-user-away-icon.png";
     public static String i32_user_invisible = "icons/32Status-user-invisible-icon.png";
     public static String i32_user_online = "icons/32Status-user-online-icon.png";
+    
+    public static String i32_information = "icons/32Status-dialog-information-icon.png";
+    public static String i32_important = "icons/32Emblems-emblem-important-icon.png";
+    public static String i32_dictionary = "icons/32Apps-accessories-dictionary-icon.png";
+    public static String i32_chart = "icons/32Actions-office-chart-area-stacked-icon.png";
+    
     private static CRUDfxIcons me = null;
 
     private static CRUDfxIcons it() {
