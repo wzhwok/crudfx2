@@ -24,8 +24,8 @@ public class Main {
     static TabPage icons128=null;
     static TabPage iconsAll=null;*/
     public static void main(String[] args) {
-	//final BaseTheme theme = new crudfx2theme.Theme(){
-	final BaseTheme theme = new crudfx2substance.SuTheme(){
+	final BaseTheme theme = new crudfx2theme.Theme(){
+	//final BaseTheme theme = new crudfx2substance.SuTheme(){
             @Override public ImageIcon icon(String path) {
                 ImageIcon ii= new ImageIcon(path);
                 if(ii.getIconWidth()<0){
@@ -50,8 +50,8 @@ public class Main {
 	    .footer(createFooter(localization,theme))
 	    .body(createBody(localization,theme))
 	    .icon(CRUDfxIcons.i32_system)
-	    .menuPad(createFileMenu(localization,theme))
-	    .menuPad(createHelpMenu(localization,theme))
+	    .menuPad(createMenuFile(localization,theme))
+	    .menuPad(createMenuHelp(localization,theme))
 	    .toolbar(createToolbar(localization,theme));	
         theme.log(0, "start");
 	theme.startup(window);
@@ -157,19 +157,19 @@ public class Main {
 		.icon("images/ru.png")
 		);
 	}
-    static MenuPad createHelpMenu(Localization localization,BaseTheme theme){
+    static MenuPad createMenuHelp(Localization localization,BaseTheme theme){
 	final BaseTheme ftheme=theme;
 	return new MenuPad()
 	    .title(localization.get("menuHelp"))
 	    .item(new MenuAction(){
 		    @Override public void onSelect() {
-			ftheme.inform( "This is test");
+			ftheme.inform( "<html><h1>Hello</h1><p>This is <strong>just</strong> a test.</p></html>");
 			}
 		    }
 		.title(localization.get("menuHelpAbout"))
-		.icon(CRUDfxIcons.i16_paste));
+		.icon(CRUDfxIcons.i16_information));
 	}
-    static MenuPad createFileMenu(Localization localization,BaseTheme theme){
+    static MenuPad createMenuFile(Localization localization,BaseTheme theme){
 	final BaseTheme ftheme=theme;
 	final Localization flocalization=localization;
 	//final BiValue<String> current=new BiValue<String> (localization.current());
@@ -208,6 +208,6 @@ public class Main {
 			}
 		    }
 		.title(localization.get("menuFileExit"))
-		.icon(CRUDfxIcons.i16_zoom));	
+		.icon(CRUDfxIcons.i16_undo));	
     }
 }

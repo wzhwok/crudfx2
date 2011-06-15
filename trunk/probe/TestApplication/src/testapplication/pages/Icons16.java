@@ -13,17 +13,25 @@ public class Icons16 {
 		.title("16 x 16")
                 .body(new SuiteCrowd()           
                     .item(new StandardLabel().title("i16_calendar  ").icon(CRUDfxIcons.i16_calendar))
+		    .item(new StandardLabel().title("i16_chart  ").icon(CRUDfxIcons.i16_chart))
                     .item(new StandardLabel().title("i16_computer  ").icon(CRUDfxIcons.i16_computer))
                     .item(new StandardLabel().title("i16_copy  ").icon(CRUDfxIcons.i16_copy))
                     .item(new StandardLabel().title("i16_cut  ").icon(CRUDfxIcons.i16_cut))
                     .item(new StandardLabel().title("i16_database  ").icon(CRUDfxIcons.i16_database))
                     .item(new StandardLabel().title("i16_decrypt  ").icon(CRUDfxIcons.i16_decrypt))
                     .item(new StandardLabel().title("i16_delete  ").icon(CRUDfxIcons.i16_delete))
+		    
+		    .item(new StandardLabel().title("i16_dictionary  ").icon(CRUDfxIcons.i16_dictionary))
+		    
                     .item(new StandardLabel().title("i16_down  ").icon(CRUDfxIcons.i16_down))
                     .item(new StandardLabel().title("i16_edit  ").icon(CRUDfxIcons.i16_edit))
                     .item(new StandardLabel().title("i16_favorites  ").icon(CRUDfxIcons.i16_favorites))
                     .item(new StandardLabel().title("i16_folder  ").icon(CRUDfxIcons.i16_folder))
                     .item(new StandardLabel().title("i16_folder_documents  ").icon(CRUDfxIcons.i16_folder_documents))
+		    
+		    .item(new StandardLabel().title("i16_important  ").icon(CRUDfxIcons.i16_important))
+		    .item(new StandardLabel().title("i16_information  ").icon(CRUDfxIcons.i16_information))
+		    
                     .item(new StandardLabel().title("i16_internet  ").icon(CRUDfxIcons.i16_internet))
                     .item(new StandardLabel().title("i16_message  ").icon(CRUDfxIcons.i16_message))
                     .item(new StandardLabel().title("i16_next  ").icon(CRUDfxIcons.i16_next))

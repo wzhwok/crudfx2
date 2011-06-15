@@ -20,7 +20,7 @@ public class Alert {
                         .body(new StandardButton(){
                                 @Override public void onClick() {
                                     //baseTheme.inform("khbjyby");
-                                    baseTheme.warn("Some warning");
+                                    baseTheme.warn("Some warning test without formatting.");
                                     }
                                 }
                             .title("Show warning")
