@@ -187,6 +187,9 @@ public class Theme extends BaseTheme {
 	if (unit instanceof SuiteCrowd) {
 	    return new NativeSuiteCrowd((SuiteCrowd) unit, this);
 	}
+        if (unit instanceof MiniBrowser) {
+	    return new NativeMiniBrowser((MiniBrowser) unit, this);
+	}
 	JLabel bad = new JLabel(unit.getClass().getName());
 	bad.setOpaque(true);
 	bad.setBackground(new Color(150, 0, 0));
