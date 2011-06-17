@@ -40,6 +40,8 @@ public class NativeMiniBrowser extends JScrollPane implements HyperlinkListener 
 	    @Override
 	    public void onChange(String newValue) {
 		browser.setText(_unit.html().get());
+                browser.setSelectionStart(0);
+                browser.setSelectionEnd(0);
 	    }
 	};
     }

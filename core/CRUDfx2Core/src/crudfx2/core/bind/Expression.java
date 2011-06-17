@@ -2,41 +2,108 @@ package crudfx2.core.bind;
 
 public class Expression {
 
-    Calculation<Double> _calculation;
-    public Expression(BiValue<Double> base) {
-	_calculation = new Calculation(base, new BiValue<Double>(0.0));
-    }
-    public Expression(Calculation<Double> calculation) {
-	_calculation = calculation;
-    }
-    public BiValue<Double> result() {
-	return _calculation.second();
-    }
-    public Expression plus(double v) {
-	final double vv=v;
-	Calculation<Double> calcPlus = new Calculation<Double>(_calculation.second(), new BiValue<Double>(vv)) {
+    Calculation<Integer> _calculation;
 
-	    @Override
-	    public Double calculateFirst() {
-		return second().get() - vv;
-	    }
-	    @Override
-	    public Double calculateSecond() {
-		return first().get() + vv;
-	    }
-	};
-	Expression e = new Expression(calcPlus);
-	return e;
+    public Expression(BiValue<Integer> base) {
+        _calculation = new Calculation(base, new BiValue<Integer>(base.get()));
     }
+
+    public Expression(Calculation<Integer> calculation) {
+        _calculation = calculation;
+    }
+
+    public BiValue<Integer> result() {
+        return _calculation.second();
+    }
+
+    public Expression plus(int v) {
+        final int vv = v;
+        int t = _calculation.second().get();
+        Calculation<Integer> calcPlus = new Calculation<Integer>(_calculation.second(), new BiValue<Integer>(vv)) {
+
+            @Override
+            public Integer calculateFirst() {
+                return second().get() - vv;
+            }
+
+            @Override
+            public Integer calculateSecond() {
+                return first().get() + vv;
+            }
+        };
+        _calculation.second().set(t);
+        Expression e = new Expression(calcPlus);
+        return e;
+    }
+
+    public Expression multiply(int v) {
+        final int vv = v;
+        int t = _calculation.second().get();
+        Calculation<Integer> calcPlus = new Calculation<Integer>(_calculation.second(), new BiValue<Integer>(vv)) {
+
+            @Override
+            public Integer calculateFirst() {
+                return second().get() / vv;
+            }
+
+            @Override
+            public Integer calculateSecond() {
+                return first().get() * vv;
+            }
+        };
+        _calculation.second().set(t);
+        Expression e = new Expression(calcPlus);
+        return e;
+    }
+
+    public Expression divide(int v) {
+        final int vv = v;
+        int t = _calculation.second().get();
+        Calculation<Integer> calcPlus = new Calculation<Integer>(_calculation.second(), new BiValue<Integer>(vv)) {
+
+            @Override
+            public Integer calculateFirst() {
+                return second().get() * vv;
+            }
+
+            @Override
+            public Integer calculateSecond() {
+                return first().get() / vv;
+            }
+        };
+        _calculation.second().set(t);
+        Expression e = new Expression(calcPlus);
+        return e;
+    }
+
+    public Expression minus(int v) {
+        final int vv = v;
+        int t = _calculation.second().get();
+        Calculation<Integer> calcPlus = new Calculation<Integer>(_calculation.second(), new BiValue<Integer>(vv)) {
+
+            @Override
+            public Integer calculateFirst() {
+                return second().get() + vv;
+            }
+
+            @Override
+            public Integer calculateSecond() {
+                return first().get() - vv;
+            }
+        };
+        _calculation.second().set(t);
+        Expression e = new Expression(calcPlus);
+        return e;
+    }
+
     public static void main(String[] args) {
-	BiValue<Double> base = new BiValue<Double>(3.0);
-	BiValue<Double> rez = new BiValue<Double>(new Expression(base).result());
-	//ff=new BiValue<Double>(Calculation.expression(cc).minus(8));
-
-	System.out.println(base.get() + " / " + rez.get());
-	base.set(1.0);
-	System.out.println(base.get() + " / " + rez.get());
-	rez.set(2.0);
-	System.out.println(base.get() + " / " + rez.get());
+        BiValue<Integer> cls = new BiValue<Integer>(40);
+        BiValue<Integer> rez = new BiValue<Integer>(new Expression(cls).multiply(9).divide(5).plus(32).result());
+        System.out.println("Celsius / Fahrenheit");
+        System.out.println(cls.get() + " / " + rez.get());
+        cls.set(100);
+        System.out.println(cls.get() + " / " + rez.get());
+        rez.set(100);
+        System.out.println(cls.get() + " / " + rez.get());
     }
 }
