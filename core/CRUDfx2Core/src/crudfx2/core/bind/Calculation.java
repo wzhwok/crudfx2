@@ -82,7 +82,7 @@ public class Calculation<Kind> {
     cc.set(2.0);
     System.out.println(ff.get() + " / " + cc.get());
     }*/
-
+/*
     public static void main(String[] args) {
         final BiValue<Double> tFahrenheit = new BiValue<Double>(0.0);
         final BiValue<Double> tCelsius = new BiValue<Double>(0.0);
@@ -104,5 +104,5 @@ public class Calculation<Kind> {
         System.out.println("let tCelsius=100");
         tCelsius.set(100.0);
         System.out.println("now tFahrenheit: " + tFahrenheit.get() + ", tCelsius: " + tCelsius.get());
-    }
+    }*/
 }
