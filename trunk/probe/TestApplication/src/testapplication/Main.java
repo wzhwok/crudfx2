@@ -29,7 +29,7 @@ public class Main {
 	final BaseTheme theme = new crudfx2theme.Theme(){
 	//final BaseTheme theme = new crudfx2substance.SuTheme(){
             @Override public ImageIcon icon(String path) {
-                ImageIcon ii= new ImageIcon(path);
+                ImageIcon ii= super.icon(path);
                 if(ii.getIconWidth()<0){
                     ii=CRUDfxIcons.icon(path);
                     }
