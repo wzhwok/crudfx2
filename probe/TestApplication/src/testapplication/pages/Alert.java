@@ -16,7 +16,17 @@ public class Alert {
     public static TabPage get(BaseTheme theme,BiValue<Integer> splitSize) {
         baseTheme=theme;
         if (page == null) {
-            page = new TabPage()
+	    page=ExamplePage.get(theme
+		    , new StandardButton(){
+			    @Override public void onClick() {
+				baseTheme.warn("Some warning test without formatting.");
+				}
+			    }
+			.title("Show warning")		    
+		    , new BiValue<String>("Alert")
+		    , "pages/alert.html"
+		    , splitSize);
+            /*page = new TabPage()
                     .title("Alert")
                     .body(new SplitTopBottom()
 			.split(splitSize)
@@ -33,7 +43,7 @@ public class Alert {
 			    .html(theme.text("pages/alert.html", "UTF-8"))
 			    )	
 			)
-                    ;
+                    ;*/
         }
         return page;
     }

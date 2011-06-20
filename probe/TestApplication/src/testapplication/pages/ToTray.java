@@ -11,10 +11,20 @@ public class ToTray {
     
     static TabPage page = null;
     static BaseTheme baseTheme;
-        public static TabPage get(BaseTheme theme,BiValue<Integer> splitSize) {
+    public static TabPage get(BaseTheme theme,BiValue<Integer> splitSize) {
         baseTheme=theme;
         if (page == null) {
-            page = new TabPage()
+	    page=ExamplePage.get(theme
+		    , new StandardButton(){
+			    @Override public void onClick() {
+				baseTheme.hide();
+				}
+			    }
+			.title("Hide to system tray")		    
+		    , new BiValue<String>("System tray")
+		    , "pages/totray.html"
+		    , splitSize);
+            /*page = new TabPage()
                     .title("System tray")
                     .body(new SplitTopBottom()
 			.split(splitSize)
@@ -33,7 +43,7 @@ public class ToTray {
 			    .html(theme.text("pages/totray.html", "UTF-8"))
 			    )	
 			)
-                    ;
+                    ;*/
         }
         return page;
     }
