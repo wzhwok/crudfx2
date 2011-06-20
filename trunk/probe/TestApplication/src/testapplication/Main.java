@@ -29,9 +29,17 @@ public class Main {
 	final BaseTheme theme = new crudfx2theme.Theme(){
 	//final BaseTheme theme = new crudfx2substance.SuTheme(){
             @Override public ImageIcon icon(String path) {
-                ImageIcon ii= super.icon(path);
-                if(ii.getIconWidth()<0){
+                ImageIcon ii= super.icon(path);                
+		if(ii.getIconWidth()<0){
                     ii=CRUDfxIcons.icon(path);
+                    }
+		if(ii==null){
+		    try{
+			ii = new ImageIcon(Main.class.getResource(path));
+			}
+		    catch(Throwable t){
+			ii=CRUDfxIcons.icon("icons/16Status-dialog-warning-icon.png");
+			}
                     }
                 return ii;
                 }

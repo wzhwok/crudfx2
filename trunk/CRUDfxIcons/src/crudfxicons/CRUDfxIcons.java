@@ -153,7 +153,7 @@ public class CRUDfxIcons {
         try {
             icon = new ImageIcon(it().getClass().getResource(path));
         } catch (Throwable t) {
-            icon = new ImageIcon(it().getClass().getResource("icons/16Status-dialog-warning-icon.png"));
+            //icon = new ImageIcon(it().getClass().getResource("icons/16Status-dialog-warning-icon.png"));
         }
         return icon;
     }
