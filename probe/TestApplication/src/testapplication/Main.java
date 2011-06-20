@@ -16,6 +16,8 @@ import crudfx2.core.bind.*;
 import java.awt.*;
 import javax.swing.*;
 import crudfxicons.*;
+import java.io.*;
+import java.util.*;
 
 public class Main {
     //static TabPage infoPage=null;
@@ -33,7 +35,31 @@ public class Main {
                     }
                 return ii;
                 }
+	    @Override public String text(String path, String encoding) {
+		//System.out.println("path: "+path);
+		String txt=super.text(path, encoding);
+		//System.out.println("txt: "+txt);
+		if(txt==null){
+		    InputStream f=Main.class.getResourceAsStream(path);
+		    ByteArrayOutputStream b = new ByteArrayOutputStream();
+		    int n;
+		    try{
+			while ((n = f.read()) != -1) {
+			    b.write(n);
+			    }
+			f.close();
+			txt = new String(b.toByteArray(), encoding);
+			//System.out.println("txt2: "+txt);
+			}
+		    catch(Throwable t){
+			log(0,t);
+			}
+		    }
+		return txt;
+		}
 	    };
+	//String ss=theme.text("pages/info.html", "UTF-8");
+	//System.out.println(ss);
 	final Localization localization=new Localization();
 	Strings.setupLocalization(localization);
 	final BaseWindow window = new BaseWindow("CrudfxExplorer.xml", theme){
@@ -117,7 +143,7 @@ public class Main {
 		)
 	    .treeItem(new TreeLeaf(){
 		    @Override public void onClick(){
-			ftabs.current(Info.get());
+			ftabs.current(Info.get(ftheme));
 			}
 		    }
 		.title("Information")
@@ -128,7 +154,7 @@ public class Main {
 	final BaseTheme ftheme=theme;
 	final Localization flocalization=localization;
 	final Tabs tabs=new Tabs()	
-                .page(Info.get());
+                .page(Info.get(ftheme));
 	return new SplitLeftRight()
 		.left(createTree(localization,theme,tabs))
 		.right(tabs);

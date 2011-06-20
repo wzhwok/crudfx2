@@ -35,8 +35,12 @@ public class Theme extends BaseTheme {
 	BindTools.saveToHome(key, cfg);
     }
     public void hide() {
-	if(nativeMainWindow==null)return;
-	if(!nativeMainWindow.isVisible())return;
+	if (nativeMainWindow == null) {
+	    return;
+	}
+	if (!nativeMainWindow.isVisible()) {
+	    return;
+	}
 	try {
 	    final SystemTray tray = SystemTray.getSystemTray();
 	    final TrayIcon trayIcon = new TrayIcon(nativeMainWindow.getIconImage(), nativeMainWindow.getTitle());
@@ -187,7 +191,7 @@ public class Theme extends BaseTheme {
 	if (unit instanceof SuiteCrowd) {
 	    return new NativeSuiteCrowd((SuiteCrowd) unit, this);
 	}
-        if (unit instanceof MiniBrowser) {
+	if (unit instanceof MiniBrowser) {
 	    return new NativeMiniBrowser((MiniBrowser) unit, this);
 	}
 	JLabel bad = new JLabel(unit.getClass().getName());
@@ -201,6 +205,23 @@ public class Theme extends BaseTheme {
 	//return IconLoader.icon(path);
 	return new ImageIcon(path);
 
+    }
+    @Override 
+    public String text(String path, String encoding) {
+	String r = null;
+	try {
+	    FileInputStream f = new FileInputStream(path);
+	    ByteArrayOutputStream b = new ByteArrayOutputStream();
+	    int n;
+	    while ((n = f.read()) != -1) {
+		b.write(n);
+	    }
+	    f.close();
+	    r = new String(b.toByteArray(), encoding);
+	} catch (Throwable t) {
+	    //log(0, t);
+	}
+	return r;
     }
     public void beforeStartup(BaseWindow win) {
 	try {
