@@ -10,14 +10,14 @@ import java.awt.*;
 import javax.swing.border.*;
 import java.awt.event.*;
 
-public class NativeSectionHide extends JPanel {
+public class NativeSection extends JPanel {
 
     JComponent _unit = null;
 
-    public NativeSectionHide(SectionHide unit, Theme ntheme) {
+    public NativeSection(Section unit, Theme ntheme) {
         this.setLayout(new BorderLayout());
         final Theme theme = ntheme;
-        final SectionHide link = unit;
+        final Section link = unit;
         this.setOpaque(false);
         final JToggleButton tgl = new JToggleButton();
         add(tgl, BorderLayout.NORTH);

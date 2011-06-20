@@ -6,7 +6,7 @@ import java.util.*;
 import crudfx2.core.gui.control.*;
 import crudfx2.core.gui.layout.*;
 
-public class SectionHide extends Widget {
+public class Section extends Widget {
 
     private BiValue<Widget> _body = new BiValue<Widget>();
     private BiValue<Boolean> _hide = new BiValue<Boolean>();
@@ -14,37 +14,37 @@ public class SectionHide extends Widget {
     public BiValue<Widget> body() {
 	return _body;
     }
-    public SectionHide body(Widget n) {
+    public Section body(Widget n) {
 	body().set(n);
 	return this;
     }
-    public SectionHide body(BiValue<Widget> n) {
+    public Section body(BiValue<Widget> n) {
 	body().bind(n);
 	return this;
     }
     public BiValue<Boolean> hide() {
 	return _hide;
     }
-    public SectionHide hide(Boolean n) {
+    public Section hide(Boolean n) {
 	hide().set(n);
 	return this;
     }
-    public SectionHide hide(BiValue<Boolean> n) {
+    public Section hide(BiValue<Boolean> n) {
 	hide().bind(n);
 	return this;
     }
     public BiValue<String> title() {
 	return _title;
     }
-    public SectionHide title(String n) {
+    public Section title(String n) {
 	title().set(n);
 	return this;
     }
-    public SectionHide title(BiValue<String> n) {
+    public Section title(BiValue<String> n) {
 	title().bind(n);
 	return this;
     }
-    public SectionHide() {
+    public Section() {
     }/*
     public SectionHide(Boolean hide, String title, Widget body) {
     _title.set(title);
