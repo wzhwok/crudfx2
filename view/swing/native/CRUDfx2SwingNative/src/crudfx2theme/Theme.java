@@ -170,8 +170,8 @@ public class Theme extends BaseTheme {
 	if (unit instanceof StandardToggle) {
 	    return new NativeToggle((StandardToggle) unit);
 	}
-	if (unit instanceof SectionHide) {
-	    return new NativeSectionHide((SectionHide) unit, this);
+	if (unit instanceof Section) {
+	    return new NativeSection((Section) unit, this);
 	}
 	if (unit instanceof SuiteHorizontal) {
 	    return new NativeSuiteHorizontal((SuiteHorizontal) unit, this);
