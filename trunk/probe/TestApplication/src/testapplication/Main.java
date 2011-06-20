@@ -153,7 +153,7 @@ public class Main {
 		)
 	    .treeItem(new TreeLeaf(){
 		    @Override public void onClick(){
-			ftabs.current(Info.get(ftheme));
+			ftabs.current(Info.get(ftheme,flocalization));
 			}
 		    }
 		.title("Information")
@@ -165,7 +165,7 @@ public class Main {
 	final BaseWindow fwindow=window;
 	final Localization flocalization=localization;
 	final Tabs tabs=new Tabs()	
-                .page(Info.get(ftheme));
+                .page(Info.get(ftheme,flocalization));
 	return new SplitLeftRight()
 		.left(createTree(fwindow,localization,theme,tabs))
 		.right(tabs);

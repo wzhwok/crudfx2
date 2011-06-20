@@ -27,6 +27,8 @@ public class Strings {
 	    .add("English", "treeMenuIcons", "Icons")
 	    .add("Russian", "treeMenuIconsAll", "Все размеры")
 	    .add("English", "treeMenuIconsAll", "All sizes")
+	    .add("Russian", "pageInfoTitle", "Инф-ция")
+	    .add("English", "pageInfoTitle", "Info")
 	    ;
     }
 }
