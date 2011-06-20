@@ -26,8 +26,8 @@ public class Main {
     static TabPage icons128=null;
     static TabPage iconsAll=null;*/
     public static void main(String[] args) {
-	final BaseTheme theme = new crudfx2theme.Theme(){
-	//final BaseTheme theme = new crudfx2substance.SuTheme(){
+	//final BaseTheme theme = new crudfx2theme.Theme(){
+	final BaseTheme theme = new crudfx2substance.SuTheme(){
             @Override public ImageIcon icon(String path) {
                 ImageIcon ii= super.icon(path);                
 		if(ii.getIconWidth()<0){
@@ -82,7 +82,7 @@ public class Main {
 	window
 	    .title(localization.get("applicationTitle"))
 	    .footer(createFooter(localization,theme))
-	    .body(createBody(localization,theme))
+	    .body(createBody(window,localization,theme))
 	    .icon(CRUDfxIcons.i32_system)
 	    .menuPad(createMenuFile(localization,theme))
 	    .menuPad(createMenuHelp(localization,theme))
@@ -90,10 +90,12 @@ public class Main {
         theme.log(0, "start");
 	theme.startup(window);
     }
-    static StandardTree createTree(Localization localization,BaseTheme theme,Tabs tabs){
+    static StandardTree createTree(BaseWindow window,Localization localization,BaseTheme theme,Tabs tabs){
 	final BaseTheme ftheme=theme;
+	final BaseWindow fwindow=window;
 	final Localization flocalization=localization;
 	final Tabs ftabs=tabs;
+	final BiValue<Integer> splitSize=fwindow.configuration().find("properties").find("split").find("").asInteger(100);
 	return new StandardTree()
 	    .treeItem(new TreeBranch()
 		.title("Visual components")
@@ -101,7 +103,7 @@ public class Main {
 		    .title("General controls")
 		    .treeItem(new TreeLeaf(){
 			    @Override public void onClick(){
-				ftabs.current(Alert.get(ftheme));
+				ftabs.current(Alert.get(ftheme,splitSize));
 				}
 			    }
 			.title("Alert")
@@ -113,7 +115,7 @@ public class Main {
 		.title("System")
 		.treeItem(new TreeLeaf(){
 			@Override public void onClick(){
-			    ftabs.current(ToTray.get(ftheme));
+			    ftabs.current(ToTray.get(ftheme,splitSize));
 			    }
 			}
 		    .title("System tray")
@@ -158,13 +160,14 @@ public class Main {
 		.icon(CRUDfxIcons.i16_favorites)
 		);
     }
-    static Widget createBody(Localization localization,BaseTheme theme){
+    static Widget createBody(BaseWindow window,Localization localization,BaseTheme theme){
 	final BaseTheme ftheme=theme;
+	final BaseWindow fwindow=window;
 	final Localization flocalization=localization;
 	final Tabs tabs=new Tabs()	
                 .page(Info.get(ftheme));
 	return new SplitLeftRight()
-		.left(createTree(localization,theme,tabs))
+		.left(createTree(fwindow,localization,theme,tabs))
 		.right(tabs);
 	}
     static Widget createFooter(Localization localization,BaseTheme theme){
