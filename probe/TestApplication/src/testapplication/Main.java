@@ -109,6 +109,14 @@ public class Main {
 			.title("Alert")
 			.icon(CRUDfxIcons.i16_system)
 			)
+		    .treeItem(new TreeLeaf(){
+			    @Override public void onClick(){
+				ftabs.current(SectionPage.get(ftheme,splitSize));
+				}
+			    }
+			.title("Section")
+			.icon(CRUDfxIcons.i16_system)
+			)
 		    )
 		) 
 	    .treeItem(new TreeBranch()
