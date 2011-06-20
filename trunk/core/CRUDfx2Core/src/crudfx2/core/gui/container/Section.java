@@ -9,7 +9,7 @@ import crudfx2.core.gui.layout.*;
 public class Section extends Widget {
 
     private BiValue<Widget> _body = new BiValue<Widget>();
-    private BiValue<Boolean> _hide = new BiValue<Boolean>();
+    private BiValue<Boolean> _fold = new BiValue<Boolean>(false);
     private BiValue<String> _title = new BiValue<String>();
     public BiValue<Widget> body() {
 	return _body;
@@ -22,15 +22,15 @@ public class Section extends Widget {
 	body().bind(n);
 	return this;
     }
-    public BiValue<Boolean> hide() {
-	return _hide;
+    public BiValue<Boolean> fold() {
+	return _fold;
     }
-    public Section hide(Boolean n) {
-	hide().set(n);
+    public Section fold(Boolean n) {
+	fold().set(n);
 	return this;
     }
-    public Section hide(BiValue<Boolean> n) {
-	hide().bind(n);
+    public Section fold(BiValue<Boolean> n) {
+	fold().bind(n);
 	return this;
     }
     public BiValue<String> title() {
