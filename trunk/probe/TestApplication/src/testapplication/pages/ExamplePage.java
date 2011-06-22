@@ -15,7 +15,7 @@ public class ExamplePage {
 	    .title(title)
 	    .body(new SplitTopBottom()
 		.split(splitSize)
-		.top(new Center()
+		.top(new ScrollBox()
 		    .body(widget)
 		    )
 		.bottom(new MiniBrowser()

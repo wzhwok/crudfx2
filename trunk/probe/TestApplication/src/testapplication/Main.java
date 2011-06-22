@@ -111,6 +111,14 @@ public class Main {
 			)
 		    .treeItem(new TreeLeaf(){
 			    @Override public void onClick(){
+				ftabs.current(LayersExample.get(ftheme,splitSize));
+				}
+			    }
+			.title("Layers")
+			.icon(CRUDfxIcons.i16_system)
+			)
+		    .treeItem(new TreeLeaf(){
+			    @Override public void onClick(){
 				ftabs.current(SectionPage.get(ftheme,splitSize));
 				}
 			    }
