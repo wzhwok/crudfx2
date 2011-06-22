@@ -8,7 +8,7 @@ import crudfxicons.*;
 import crudfx2.core.view.*;
 import crudfx2.core.bind.*;
 
-public class SectionPage {
+public class LayersExample {
 
     static TabPage page = null;
     static BaseTheme baseTheme;
@@ -18,13 +18,15 @@ public class SectionPage {
         if (page == null) {
 	    page=ExamplePage.get(theme
 		    , new Sizer()
-			.body(new JamTop()
-			    .top(new Section()
-				.body(new StandardButton()
+			.body(new Layers()
+			    .item(new StandardButton()
 				    .title("Button")
-				    )
-				.title("test")//.fold(true)
+				    .icon(CRUDfxIcons.i16_system)
 				)	
+			    .item(new BigButton()
+				    .title("Button 2222")
+				    .icon(CRUDfxIcons.i16_system)
+				)
 			    )
 			.width(200)
 			.height(200)
