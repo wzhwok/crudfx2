@@ -28,6 +28,7 @@ public class NativeColorFill extends JPanel {
 	    }
 	    //System.out.println(a);
 	    Color c = new Color(r, g, b, a);
+	    //System.out.println(c);
 	    this.setBackground(c);
 	} catch (Throwable t) {
 	    t.printStackTrace();
