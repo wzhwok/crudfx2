@@ -17,6 +17,7 @@ class TabPanel extends JPanel {
     public TabPanel(TabPage page, Theme ntheme) {
 	link = page;
 	theme = ntheme;
+	this.setOpaque(false);
 	this.setLayout(new BorderLayout());
 	new BiValue<Widget>(link.body()) {
 
