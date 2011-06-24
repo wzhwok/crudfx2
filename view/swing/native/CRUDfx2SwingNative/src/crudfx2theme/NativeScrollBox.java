@@ -30,7 +30,8 @@ public class NativeScrollBox extends JScrollPane {
 	subsub.setLayout(new BorderLayout());
 	this.getViewport().add(sub);
 	sub.add(subsub, BorderLayout.NORTH);
-	
+	sub.setOpaque(false);
+	subsub.setOpaque(false);
 	new BiValue<Widget>(link.body()) {
 
 	    @Override
