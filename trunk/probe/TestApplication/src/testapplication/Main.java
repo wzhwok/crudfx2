@@ -183,7 +183,10 @@ public class Main {
 	final Tabs tabs=new Tabs()	
                 .page(Info.get(ftheme,flocalization));
 	return new SplitLeftRight()
-		.left(createTree(fwindow,localization,theme,tabs))
+		.left(
+			createTree(fwindow,localization,theme,tabs)
+			
+		    )
 		.right(tabs);
 	}
     static Widget createFooter(Localization localization,BaseTheme theme){

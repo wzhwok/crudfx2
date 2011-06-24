@@ -11,6 +11,7 @@ public class Icons32 {
 	if(page==null){
 	    page=new TabPage()
 		.title("32 x 32")
+		    //.body(new Section()
 		    .body(new SuiteCrowd()           
 			.item(new StandardLabel().title("i32_calendar  ").icon(CRUDfxIcons.i32_calendar))
 			.item(new StandardLabel().title("i32_chart  ").icon(CRUDfxIcons.i32_chart))
@@ -54,7 +55,8 @@ public class Icons32 {
                         .item(new StandardLabel().title("i32_warning  ").icon(CRUDfxIcons.i32_warning))
                         .item(new StandardLabel().title("i32_wireless  ").icon(CRUDfxIcons.i32_wireless))
                         .item(new StandardLabel().title("i32_zoom  ").icon(CRUDfxIcons.i32_zoom))
-			);
+		//	)
+		    );
 	    }
 	return page;
 	}

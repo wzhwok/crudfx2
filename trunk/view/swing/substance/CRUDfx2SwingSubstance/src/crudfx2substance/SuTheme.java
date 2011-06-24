@@ -11,7 +11,9 @@ public class SuTheme extends crudfx2theme.Theme {
 	super();
     }
     void setSkin(SubstanceLookAndFeel laf, BaseWindow win) {
-	String sk = win.configuration().find("skin").find("").asString("org.pushingpixels.substance.api.skin.OfficeBlue2007Skin").get();
+	String sk = win.configuration().find("skin").find("")
+		.asString("org.pushingpixels.substance.api.skin.BusinessBlueSteelSkin").get();
+		//.asString("org.pushingpixels.substance.api.skin.OfficeBlue2007Skin").get();
 	try {
 	    laf.setSkin(sk);
 	} catch (Throwable t) {

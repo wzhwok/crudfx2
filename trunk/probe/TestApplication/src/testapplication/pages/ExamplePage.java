@@ -15,14 +15,19 @@ public class ExamplePage {
 	    .title(title)
 	    .body(new SplitTopBottom()
 		.split(splitSize)
-		.top(new ScrollBox()
-		    .body(widget)
+		.top(//new Section()
+		    //.body(
+			new ScrollBox()
+			.body(widget)
+			//)
 		    )
-		.bottom(new MiniBrowser()
-		    .html(theme.text(description, "UTF-8"))
-		    )	
+		.bottom(new Section()
+		    .body(new MiniBrowser()
+			.html(theme.text(description, "UTF-8"))
+			)
+		    )
 		)
-	    ;        
+	    ;
         return page;
     }
 }

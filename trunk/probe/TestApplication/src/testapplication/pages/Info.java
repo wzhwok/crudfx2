@@ -18,13 +18,17 @@ public class Info {
 			}
 		    }
 		.title(localization.get("pageInfoTitle"))
-		.body(new MiniBrowser() {
+		.body(//new Section()
+		    //.body(
+		    new MiniBrowser() {
 			@Override public void onLink(String url) {
 			    //System.out.println("url: "+url);
 			    //html("clicked");
 			    }
 			}
-		    .html(theme.text("pages/info.html", "UTF-8")));
+		    .html(theme.text("pages/info.html", "UTF-8")))
+	//	    )
+	    ;
 	    //"<h1>123</h1><p>test page</p><hr/><pre>blablabla\n\tbububu</pre><p><a href='http://ya.ru'>test link</a></p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p>"));
 	    //System.out.println("html: "+theme.text("pages/info.html", "UTF-8"));
 	}
