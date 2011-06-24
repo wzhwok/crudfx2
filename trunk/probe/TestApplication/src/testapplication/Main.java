@@ -26,8 +26,8 @@ public class Main {
     static TabPage icons128=null;
     static TabPage iconsAll=null;*/
     public static void main(String[] args) {
-	final BaseTheme theme = new crudfx2theme.Theme(){
-	//final BaseTheme theme = new crudfx2substance.SuTheme(){
+	//final BaseTheme theme = new crudfx2theme.Theme(){
+	final BaseTheme theme = new crudfx2substance.SuTheme(){
             @Override public ImageIcon icon(String path) {
                 ImageIcon ii= super.icon(path);                
 		if(ii.getIconWidth()<0){
@@ -81,12 +81,12 @@ public class Main {
 	localization.current(window.configuration().find("properies").find("language").find("").asString("English"));
 	window
 	    .title(localization.get("applicationTitle"))
-	    .footer(new ColorFill().color("ff6666").body(createFooter(localization,theme)))
-	    .body(new ColorFill().color("66ff66").body(createBody(window,localization,theme)))
+	    .footer(createFooter(localization,theme))
+	    .body(createBody(window,localization,theme))
 	    .icon(CRUDfxIcons.i32_system)
 	    .menuPad(createMenuFile(localization,theme))
 	    .menuPad(createMenuHelp(localization,theme))
-	    .toolbar(new ColorFill().color("9999ff").body(createToolbar(localization,theme)));	
+	    .toolbar(createToolbar(localization,theme));	
         theme.log(0, "start");
 	theme.startup(window);
     }
