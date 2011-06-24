@@ -11,7 +11,8 @@ public class Icons16 {
 	if(page==null){
 	    page=new TabPage()
 		.title("16 x 16")
-                .body(new SuiteCrowd()           
+                //.body(new Section()
+		    .body(new SuiteCrowd()           
                     .item(new StandardLabel().title("i16_calendar  ").icon(CRUDfxIcons.i16_calendar))
 		    .item(new StandardLabel().title("i16_chart  ").icon(CRUDfxIcons.i16_chart))
                     .item(new StandardLabel().title("i16_computer  ").icon(CRUDfxIcons.i16_computer))
@@ -59,6 +60,7 @@ public class Icons16 {
                     .item(new StandardLabel().title("i16_wireless  ").icon(CRUDfxIcons.i16_wireless))
                     .item(new StandardLabel().title("i16_zoom  ").icon(CRUDfxIcons.i16_zoom))
                     )
+		    //)
 		;
 	    }
 	return page;

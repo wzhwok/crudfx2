@@ -11,6 +11,7 @@ public class Icons128 {
 	if(page==null){
 	    page=new TabPage()
 		.title("128 x 128")
+		    //.body(new Section()
 		    .body(new SuiteCrowd()           
 			.item(new StandardLabel().title("i128_calendar  ").icon(CRUDfxIcons.i128_calendar))
 		    .item(new StandardLabel().title("i128_chart  ").icon(CRUDfxIcons.i128_chart))
@@ -55,7 +56,8 @@ public class Icons128 {
                         .item(new StandardLabel().title("i128_warning  ").icon(CRUDfxIcons.i128_warning))
                         .item(new StandardLabel().title("i128_wireless  ").icon(CRUDfxIcons.i128_wireless))
                         .item(new StandardLabel().title("i128_zoom  ").icon(CRUDfxIcons.i128_zoom))
-			);
+			//)
+		    );
 	    }
 	return page;
 	}
