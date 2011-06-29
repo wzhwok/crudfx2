@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class NativeSection extends JPanel {
-    
+
     JComponent _unit = null;
     static Image hidden = new ImageIcon(NativeTree.class.getResource("hidden.png")).getImage();
     static Image shown = new ImageIcon(NativeTree.class.getResource("shown.png")).getImage();
@@ -21,7 +21,7 @@ public class NativeSection extends JPanel {
 	this.setOpaque(false);
 	EtchedBorder etchedBorder = new EtchedBorder();
 	final TitledBorder titledBorder = new TitledBorder(etchedBorder, "") {
-	    
+
 	    boolean _computeIntersection(Rectangle dest, int rx, int ry, int rw, int rh) {
 		int x1 = Math.max(rx, dest.x);
 		int x2 = Math.min(rx + rw, dest.x + dest.width);
@@ -191,7 +191,7 @@ public class NativeSection extends JPanel {
 	}
 	});*/
 	new BiValue<Widget>(link.body()) {
-	    
+
 	    @Override
 	    public void onChange(Widget newValue) {
 		if (_unit != null) {
@@ -211,7 +211,7 @@ public class NativeSection extends JPanel {
 	    }
 	};
 	new BiValue<Boolean>(link.fold()) {
-	    
+
 	    @Override
 	    public void onChange(Boolean newValue) {
 		if (_unit != null) {
@@ -221,7 +221,7 @@ public class NativeSection extends JPanel {
 	    }
 	};
 	new BiValue<String>(link.title()) {
-	    
+
 	    @Override
 	    public void onChange(String newValue) {
 		//tgl.setText(link.title().get());
@@ -232,16 +232,47 @@ public class NativeSection extends JPanel {
 	//this.doLayout();
 	//this.invalidate();
 	this.addMouseListener(new MouseAdapter() {
-	    public void mouseClicked(MouseEvent e){
-		if(e.getPoint().y<12){
-		    link.fold().set(!link.fold().get());
-		    doLayout();		    
-		    invalidate();
-		    repaint();
+
+	    @Override
+	    public void mouseClicked(MouseEvent e) {
+		if (e.getPoint().y < 12) {
+		    if (link.title().get() != null) {
+			if (link.title().get().length() > 0) {
+			    link.fold().set(!link.fold().get());
+			    doLayout();
+			    invalidate();
+			    repaint();
+			}
+		    }
 		}
 		//System.out.println(e.getPoint());
 	    }
+	    public void mouseEntered(MouseEvent e) {
+		if (e.getPoint().y < 12) {
+		    if (link.title().get() != null) {
+			if (link.title().get().length() > 0) {
+			    setCursor(Theme.handCursor);
+			    return;
+			}
+		    }
+		}
+		setCursor(Cursor.getDefaultCursor());
+	    }
+	    public void mouseMoved(MouseEvent e) {
+		if (e.getPoint().y < 12) {
+		    if (link.title().get() != null) {
+			if (link.title().get().length() > 0) {
+			    setCursor(Theme.handCursor);
+			    return;
+			}
+		    }
+		}
+		setCursor(Cursor.getDefaultCursor());
+	    }
+	    public void mouseExited(MouseEvent e) {
+		setCursor(Cursor.getDefaultCursor());
+	    }
 	});
-	setCursor(Theme.handCursor);
+
     }
 }

@@ -8,7 +8,7 @@ import crudfx2.core.view.*;
 public class BaseWindow {
 
     public String key = "";
-    private Wood _configuration;
+    private BiTree _configuration;
     private BiValue<String> _title = new BiValue<String>();
     private BiValue<String> _icon = new BiValue<String>();
     private BiValue<Widget> _body = new BiValue<Widget>();
@@ -64,7 +64,7 @@ public class BaseWindow {
         return this;
     }*/
 
-    public Wood configuration() {
+    public BiTree configuration() {
         return _configuration;
     }
 
@@ -150,7 +150,7 @@ public class BaseWindow {
         _configuration = theme.loadConfiguration(key);
         //BindTools.loadFromXMLFile(BindTools.homeFile(key));
         if (_configuration.name.equals("")) {
-            _configuration = new Wood("configuration");
+            _configuration = new BiTree("configuration");
         }
     }
 

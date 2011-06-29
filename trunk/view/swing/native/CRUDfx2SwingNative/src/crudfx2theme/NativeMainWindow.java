@@ -42,7 +42,7 @@ class LinkedSubMenu extends JMenu {
 
 public class NativeMainWindow extends JFrame {
     
-    private Wood _configuration;
+    private BiTree _configuration;
     private BaseWindow _mainWindow;
     private JToolBar _toolbar = new JToolBar();
     private JComponent _unit = null;

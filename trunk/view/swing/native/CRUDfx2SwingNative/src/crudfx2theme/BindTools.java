@@ -10,7 +10,7 @@ import crudfx2.core.bind.*;
 
 public class BindTools {
 
-    public static void saveToHome(String name, Wood branch) {
+    public static void saveToHome(String name, BiTree branch) {
         try {
             // Create file
             FileWriter fstream = new FileWriter(homeFile(name));
@@ -30,8 +30,8 @@ public class BindTools {
         return home + separator + name;
     }
 
-    public static Wood loadFromXMLFile(String path) {
-        final Vector<Wood> out = new Vector<Wood>();
+    public static BiTree loadFromXMLFile(String path) {
+        final Vector<BiTree> out = new Vector<BiTree>();
         //Branch root = null;//new Branch("");
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -41,12 +41,12 @@ public class BindTools {
                 public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
                     //System.out.println("start " + qName);
                     //root = null;//new Branch("")
-                    Wood current;
+                    BiTree current;
                     if (out.size() < 1) {
-                        current = new Wood(qName);
+                        current = new BiTree(qName);
                         out.add(current);
                     } else {
-                        current = new Wood(qName);
+                        current = new BiTree(qName);
                         current.saxparent = out.get(0);
                         out.get(0).children().add(current);
                         out.removeAllElements();
@@ -54,7 +54,7 @@ public class BindTools {
                         //System.out.println(crudfxii.bind.Branch.composeXML(current));
                     }
                     for (int i = 0; i < attributes.getLength(); i++) {
-                        Wood a = new Wood(attributes.getQName(i));
+                        BiTree a = new BiTree(attributes.getQName(i));
                         a.raw = attributes.getValue(i);
                         a.isAttribute = true;
                         current.children().add(a);
@@ -64,7 +64,7 @@ public class BindTools {
                 public void endElement(String uri, String localName, String qName) {
                     //System.out.println("end " + qName);
                     if (out.get(0).saxparent != null) {
-                        Wood current = out.get(0).saxparent;
+                        BiTree current = out.get(0).saxparent;
                         out.removeAllElements();
                         out.add(current);
                     }
@@ -81,7 +81,7 @@ public class BindTools {
                         //System.out.println("ch " + s);
                         if (out.size() > 0) {
                             //System.out.println("ch " + s);
-                            Wood current = new Wood("");
+                            BiTree current = new BiTree("");
                             current.raw = s;
                             out.get(0).children().add(current);
                         }
@@ -95,7 +95,7 @@ public class BindTools {
         }
         //return root;
         if (out.size() < 1) {
-            return new Wood("");
+            return new BiTree("");
         } else {
             return out.get(0);
         }
@@ -111,7 +111,7 @@ public class BindTools {
         return text;
     }
 
-    private static String composeXML(Wood branch, String pad) {
+    private static String composeXML(BiTree branch, String pad) {
         String data = "";
         if (branch.name.equals("")) {
             branch.gather();
@@ -148,7 +148,7 @@ public class BindTools {
         return data;
     }
 
-    public static String composeXML(Wood branch) {
+    public static String composeXML(BiTree branch) {
         return composeXML(branch, "");
     }
 }
