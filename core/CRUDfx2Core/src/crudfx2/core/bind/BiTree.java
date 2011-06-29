@@ -2,15 +2,15 @@ package crudfx2.core.bind;
 
 import java.util.*;
 
-public class Wood {
+public class BiTree {
 
     public static int NODE = 0;
     public static int ATTRIBUTE = 1;
     public static int CDATA = 2;
     public String name = "";
     public String raw = null;
-    private BiSet<Wood> _children = new BiSet<Wood>();
-    public Wood saxparent = null;
+    private BiSet<BiTree> _children = new BiSet<BiTree>();
+    public BiTree saxparent = null;
     private BiValue<String> _string = null;
     private BiValue<Integer> _integer = null;
     private BiValue<Double> _doubl = null;
@@ -18,11 +18,11 @@ public class Wood {
     public boolean isCDATA = false;
     public boolean isText = false;
 
-    public Wood(String branchName) {
+    public BiTree(String branchName) {
         this(branchName,NODE);
     }
 
-    public Wood(String branchName, int kind) {
+    public BiTree(String branchName, int kind) {
         this.name = branchName;
         if (kind == ATTRIBUTE) {
             isAttribute = true;
@@ -33,17 +33,17 @@ public class Wood {
         }
     }
 
-    public BiSet<Wood> children() {
+    public BiSet<BiTree> children() {
         return _children;
     }
 
-    public Wood find(String name) {
+    public BiTree find(String name) {
         for (int i = 0; i < children().count(); i++) {
             if (children().get(i).name.equals(name)) {
                 return children().get(i);
             }
         }
-        Wood b = new Wood(name);
+        BiTree b = new BiTree(name);
         children().add(b);
         return b;
     }

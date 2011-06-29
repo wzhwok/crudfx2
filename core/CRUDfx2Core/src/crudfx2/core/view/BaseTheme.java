@@ -7,8 +7,8 @@ public abstract class BaseTheme {
 
     public abstract void startup(BaseWindow win);
     public abstract void exit();
-    public abstract Wood loadConfiguration(String key);
-    public abstract void saveConfiguration(String key, Wood cfg);
+    public abstract BiTree loadConfiguration(String key);
+    public abstract void saveConfiguration(String key, BiTree cfg);
     public abstract boolean confirm(String message);
     public abstract void warn(String message);
     public abstract void inform(String message);

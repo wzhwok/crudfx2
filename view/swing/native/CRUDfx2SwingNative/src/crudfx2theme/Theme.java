@@ -28,10 +28,10 @@ public class Theme extends BaseTheme {
     public Theme() {
 	//
     }
-    public Wood loadConfiguration(String key) {
+    public BiTree loadConfiguration(String key) {
 	return BindTools.loadFromXMLFile(BindTools.homeFile(key));
     }
-    public void saveConfiguration(String key, Wood cfg) {
+    public void saveConfiguration(String key, BiTree cfg) {
 	BindTools.saveToHome(key, cfg);
     }
     public void hide() {
