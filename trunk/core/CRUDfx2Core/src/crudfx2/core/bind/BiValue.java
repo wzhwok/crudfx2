@@ -9,7 +9,8 @@ public class BiValue<Kind> {
     public BiValue() {
     }
     public BiValue(Kind initVal) {
-	this._value = initVal;
+	//this._value = initVal;
+	set(initVal);
     }
     public BiValue(BiValue<Kind> bindVal) {
 	this.bind(bindVal);
@@ -21,14 +22,14 @@ public class BiValue<Kind> {
 	setForEachBindedItem(newValue, new Vector<BiValue>());
     }
     private void setForEachBindedItem(Kind newValue, Vector<BiValue> cashe) {
-	if (this._value == null && newValue == null) {
+	if (get() == null && newValue == null) {
 	    return;
 	}
-	if (this._value != null && this._value.equals(newValue)) {
+	if (get() != null && get().equals(newValue)) {
 	    return;
 	}
 	this._value = newValue;
-	onChange(this._value);
+	onChange(get());
 	cashe.add(this);
 	for (int i = 0; i < _binded.size(); i++) {
 	    if (!cashe.contains(_binded.get(i))) {
