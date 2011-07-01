@@ -6,7 +6,7 @@ public class GroupSet<Kind> {
 
     Hashtable<String, BiValue<Kind>> currentValues = new Hashtable<String, BiValue<Kind>>();
     Hashtable<String, Hashtable<String, BiValue<Kind>>> sets = new Hashtable<String, Hashtable<String, BiValue<Kind>>>();
-    BiValue<String> _current = new BiValue<String>("") {
+    BiString _current = new BiString("") {
 
         @Override
         public void onChange(String newValue) {
@@ -14,7 +14,7 @@ public class GroupSet<Kind> {
         }
     };
 
-    public BiValue<String> current() {
+    public BiString current() {
         return _current;
     }
 
@@ -28,6 +28,7 @@ public class GroupSet<Kind> {
     }
 
     private void refreshSet() {
+	if(_current==null)return;
         //System.out.println(_current.get());
         Hashtable<String, BiValue<Kind>> choosenSet = findSet(_current.get());
         for (Enumeration<String> e = choosenSet.keys(); e.hasMoreElements();) {

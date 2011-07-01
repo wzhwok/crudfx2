@@ -4,9 +4,9 @@ import crudfx2.core.bind.*;
 
 public class MenuCheck extends MenuUnit {
 
-    private BiValue<String> _title = new BiValue<String>();
+    private BiString _title = new BiString();
     private BiValue<Boolean> _checked = new BiValue<Boolean>();
-    public BiValue<String> title() {
+    public BiString title() {
 	return _title;
     }
     public MenuCheck title(String t) {
@@ -28,7 +28,7 @@ public class MenuCheck extends MenuUnit {
 	checked().set(t);
 	return this;
     }
-  /*  public MenuCheck(BiValue<Boolean> check, BiValue<String> ititle) {
+  /*  public MenuCheck(BiValue<Boolean> check, BiString ititle) {
 	title().bind(ititle);
 	checked().bind(check);
     }*/

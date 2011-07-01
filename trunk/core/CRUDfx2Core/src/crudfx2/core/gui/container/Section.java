@@ -10,7 +10,7 @@ public class Section extends Widget {
 
     private BiValue<Widget> _body = new BiValue<Widget>();
     private BiValue<Boolean> _fold = new BiValue<Boolean>(false);
-    private BiValue<String> _title = new BiValue<String>();
+    private BiString _title = new BiString();
     public BiValue<Widget> body() {
 	return _body;
     }
@@ -33,7 +33,7 @@ public class Section extends Widget {
 	fold().bind(n);
 	return this;
     }
-    public BiValue<String> title() {
+    public BiString title() {
 	return _title;
     }
     public Section title(String n) {

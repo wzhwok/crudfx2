@@ -6,8 +6,8 @@ import crudfx2.core.bind.*;
 public class Sizer extends Widget {
 
     private BiValue<Widget> _body = new BiValue<Widget>();
-    private BiValue<Integer> _width = new BiValue<Integer>();
-    private BiValue<Integer> _height = new BiValue<Integer>();
+    private BiNumber _width = new BiNumber();
+    private BiNumber _height = new BiNumber();
     public BiValue<Widget> body() {
 	return _body;
     }
@@ -19,25 +19,25 @@ public class Sizer extends Widget {
 	body().bind(c);
 	return this;
     }
-    public BiValue<Integer> width() {
+    public BiNumber width() {
 	return _width;
     }
-    public Sizer width(Integer n) {
+    public Sizer width(Double n) {
 	width().set(n);
 	return this;
     }
-    public Sizer width(BiValue<Integer> n) {
+    public Sizer width(BiNumber n) {
 	width().bind(n);
 	return this;
     }
-    public BiValue<Integer> height() {
+    public BiNumber height() {
 	return _height;
     }
-    public Sizer height(Integer n) {
+    public Sizer height(Double n) {
 	height().set(n);
 	return this;
     }
-    public Sizer height(BiValue<Integer> n) {
+    public Sizer height(BiNumber n) {
 	height().bind(n);
 	return this;
     }

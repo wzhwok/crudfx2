@@ -4,10 +4,10 @@ import crudfx2.core.bind.*;
 
 public class MenuPad {
 
-    private BiValue<String> _title = new BiValue<String>();
+    private BiString _title = new BiString();
     private BiSet<MenuUnit> _items = new BiSet<MenuUnit>();
 
-    public BiValue<String> title() {
+    public BiString title() {
         return _title;
     }
 
@@ -39,7 +39,7 @@ public class MenuPad {
     public MenuPad() {
     }
 /*
-    public MenuPad(BiValue<String> inTitle, MenuUnit[] inItems) {
+    public MenuPad(BiString inTitle, MenuUnit[] inItems) {
         this.title().bind(inTitle);
         initItems(inItems);
     }

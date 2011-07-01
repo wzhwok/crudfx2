@@ -4,41 +4,41 @@ import java.util.Calendar;
 
 public class Ticker {
 
-    private BiValue<Integer> _count = new BiValue<Integer>(0);
-    private BiValue<Integer> _delay = new BiValue<Integer>(0);
-    private BiValue<Integer> _current = new BiValue<Integer>(0);
+    private BiNumber _count = new BiNumber(0.0);
+    private BiNumber _delay = new BiNumber(0.0);
+    private BiNumber _current = new BiNumber(0.0);
     private boolean _stopFlag = false;
     private boolean _workFlag = false;
 
-    public BiValue<Integer> count() {
+    public BiNumber count() {
         return _count;
     }
 
-    public Ticker count(int n) {
+    public Ticker count(double n) {
         count().set(n);
         return this;
     }
 
-    public Ticker count(BiValue<Integer> n) {
+    public Ticker count(BiNumber n) {
         count().bind(n);
         return this;
     }
 
-    public BiValue<Integer> delay() {
+    public BiNumber delay() {
         return _delay;
     }
 
-    public Ticker delay(int n) {
+    public Ticker delay(double n) {
         delay().set(n);
         return this;
     }
 
-    public Ticker delay(BiValue<Integer> n) {
+    public Ticker delay(BiNumber n) {
         delay().bind(n);
         return this;
     }
 
-    public BiValue<Integer> current() {
+    public BiNumber current() {
         return _current;
     }
 
@@ -54,7 +54,7 @@ public class Ticker {
                 long current;
                 _workFlag = true;
                 _stopFlag = false;
-                current().set(0);
+                current().set(0.0);
                 while (!_stopFlag) {
                     current = Calendar.getInstance().getTimeInMillis();
                     if (prev < current - step) {

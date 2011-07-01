@@ -32,20 +32,20 @@ public class NativeSizer extends JPanel {
             }
         };
 
-        new BiValue<Integer>(link.width()) {
+        new BiNumber(link.width()) {
 
             @Override
-            public void onChange(Integer newValue) {
-                setPreferredSize(new Dimension(link.width().get(), link.height().get()));
-                setSize(new Dimension(link.width().get(), link.height().get()));
+            public void onChange(Double newValue) {
+                setPreferredSize(new Dimension(link.width().get().intValue(), link.height().get().intValue()));
+                setSize(new Dimension(link.width().get().intValue(), link.height().get().intValue()));
             }
         };
-        new BiValue<Integer>(link.height()) {
+        new BiNumber(link.height()) {
 
             @Override
-            public void onChange(Integer newValue) {
-                setPreferredSize(new Dimension(link.width().get(), link.height().get()));
-                setSize(new Dimension(link.width().get(), link.height().get()));
+            public void onChange(Double newValue) {
+                setPreferredSize(new Dimension(link.width().get().intValue(), link.height().get().intValue()));
+                setSize(new Dimension(link.width().get().intValue(), link.height().get().intValue()));
             }
         };
         validate();

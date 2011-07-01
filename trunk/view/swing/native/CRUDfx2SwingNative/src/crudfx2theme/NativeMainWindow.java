@@ -63,17 +63,17 @@ public class NativeMainWindow extends JFrame {
 	    public void componentResized(ComponentEvent e) {
 		int s = getExtendedState();
 		if (s == JFrame.MAXIMIZED_BOTH) {
-		    _configuration.find("maximized").find("").asInteger(0).set(1);
+		    _configuration.find("maximized").find("").asNumber(0.0).set(1.0);
 		} else {
-		    _configuration.find("maximized").find("").asInteger(0).set(0);
-		    _configuration.find("width").find("").asInteger(800).set(getSize().width);
-		    _configuration.find("height").find("").asInteger(600).set(getSize().height);
+		    _configuration.find("maximized").find("").asNumber(0.0).set(0.0);
+		    _configuration.find("width").find("").asNumber(800.0).set(getSize().width);
+		    _configuration.find("height").find("").asNumber(600).set(getSize().height);
 		}
 		//System.out.println(getExtendedState());
 	    }
 	    public void componentMoved(ComponentEvent e) {
-		_configuration.find("x").find("").asInteger(100).set(getLocation().x);
-		_configuration.find("y").find("").asInteger(50).set(getLocation().y);
+		_configuration.find("x").find("").asNumber(100).set(getLocation().x);
+		_configuration.find("y").find("").asNumber(50).set(getLocation().y);
 	    }
 	    public void componentShown(ComponentEvent e) {
 		//
@@ -83,10 +83,10 @@ public class NativeMainWindow extends JFrame {
 	    }
 	});
 	
-	int x = _configuration.find("x").find("").asInteger(100).get();
-	int y = _configuration.find("y").find("").asInteger(50).get();
-	int width = _configuration.find("width").find("").asInteger(800).get();
-	int height = _configuration.find("height").find("").asInteger(600).get();
+	int x = _configuration.find("x").find("").asNumber(100).get().intValue();
+	int y = _configuration.find("y").find("").asNumber(50).get().intValue();
+	int width = _configuration.find("width").find("").asNumber(800).get().intValue();
+	int height = _configuration.find("height").find("").asNumber(600).get().intValue();
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	if (x < 0) {
 	    x = 0;
@@ -108,15 +108,15 @@ public class NativeMainWindow extends JFrame {
 		height = screenSize.height;
 	    }
 	}
-	_configuration.find("x").find("").asInteger(100).set(x);
-	_configuration.find("y").find("").asInteger(50).set(y);
-	_configuration.find("width").find("").asInteger(800).set(width);
-	_configuration.find("height").find("").asInteger(600).set(height);
-	setLocation(_configuration.find("x").find("").asInteger(100).get(),
-		_configuration.find("y").find("").asInteger(100).get());
-	setSize(_configuration.find("width").find("").asInteger(800).get(),
-		_configuration.find("height").find("").asInteger(600).get());
-	if (_configuration.find("maximized").find("").asInteger(0).get() > 0) {
+	_configuration.find("x").find("").asNumber(100).set(x);
+	_configuration.find("y").find("").asNumber(50).set(y);
+	_configuration.find("width").find("").asNumber(800).set(width);
+	_configuration.find("height").find("").asNumber(600).set(height);
+	setLocation(_configuration.find("x").find("").asNumber(100).get().intValue(),
+		_configuration.find("y").find("").asNumber(100).get().intValue());
+	setSize(_configuration.find("width").find("").asNumber(800).get().intValue(),
+		_configuration.find("height").find("").asNumber(600).get().intValue());
+	if (_configuration.find("maximized").find("").asNumber(0).get() > 0) {
 	    this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 	

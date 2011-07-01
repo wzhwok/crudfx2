@@ -5,9 +5,9 @@ import crudfx2.core.bind.*;
 
 public class StandardToggle extends Widget {
 
-    private BiValue<String> _title = new BiValue<String>();
+    private BiString _title = new BiString();
     private BiValue<Boolean> _toggled = new BiValue<Boolean>();
-    public BiValue<String> title() {
+    public BiString title() {
 	return _title;
     }
     public StandardToggle title(String n) {
@@ -34,7 +34,7 @@ public class StandardToggle extends Widget {
     _toggled.set(toggled);
     }
     
-    public StandardToggle(BiValue<String> title, BiValue<Boolean> toggled) {
+    public StandardToggle(BiString title, BiValue<Boolean> toggled) {
     _title.bind(title);
     _toggled.bind(toggled);
     }*/

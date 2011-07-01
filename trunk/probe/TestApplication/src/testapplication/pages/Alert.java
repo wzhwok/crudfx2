@@ -13,7 +13,7 @@ public class Alert {
     static TabPage page = null;
     static BaseTheme baseTheme;
 
-    public static TabPage get(BaseTheme theme,BiValue<Integer> splitSize) {
+    public static TabPage get(BaseTheme theme,BiNumber splitSize) {
         baseTheme=theme;
         if (page == null) {
 	    page=ExamplePage.get(theme
@@ -23,7 +23,7 @@ public class Alert {
 				}
 			    }
 			.title("Show warning")		    
-		    , new BiValue<String>("Alert")
+		    , new BiString("Alert")
 		    , "pages/alert.html"
 		    , splitSize);
             /*page = new TabPage()

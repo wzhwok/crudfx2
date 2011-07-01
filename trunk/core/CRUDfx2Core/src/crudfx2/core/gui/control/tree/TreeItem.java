@@ -5,12 +5,12 @@ import crudfx2.core.bind.*;
 
 public abstract class TreeItem {
 
-    protected BiValue<String> _title = new BiValue<String>();
-    protected BiValue<String> _icon = new BiValue<String>();
-    public BiValue<String> title() {
+    protected BiString _title = new BiString();
+    protected BiString _icon = new BiString();
+    public BiString title() {
 	return _title;
     }
-    public BiValue<String> icon() {
+    public BiString icon() {
 	return _icon;
     }
 }

@@ -5,8 +5,8 @@ import crudfx2.core.gui.*;
 import crudfx2.core.bind.*;
 public class BigButton extends Widget{
   
-    private BiValue<String> _title = new BiValue<String>();
-    private BiValue<String> _icon = new BiValue<String>();
+    private BiString _title = new BiString();
+    private BiString _icon = new BiString();
     private BiValue<Boolean> _flat = new BiValue<Boolean>();
     /*public BiValue<Boolean> flat() {
 	return _flat;
@@ -19,7 +19,7 @@ public class BigButton extends Widget{
 	flat().bind(n);
 	return this;
     }*/
-    public BiValue<String> title() {
+    public BiString title() {
 	return _title;
     }
     public BigButton title(String n) {
@@ -30,7 +30,7 @@ public class BigButton extends Widget{
 	title().bind(n);
 	return this;
     }
-    public BiValue<String> icon() {
+    public BiString icon() {
 	return _icon;
     }
     public BigButton icon(String n) {

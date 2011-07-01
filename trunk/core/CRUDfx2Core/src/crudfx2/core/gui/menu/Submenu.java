@@ -4,9 +4,9 @@ import crudfx2.core.bind.*;
 
 public class Submenu extends MenuUnit {
 
-    private BiValue<String> _title = new BiValue<String>();
+    private BiString _title = new BiString();
     private BiSet<MenuUnit> _items = new BiSet<MenuUnit>();
-    public BiValue<String> title() {
+    public BiString title() {
 	return _title;
     }
     public BiSet<MenuUnit> items() {
@@ -27,7 +27,7 @@ public class Submenu extends MenuUnit {
     }
     public Submenu() {
     }
-   /* public Submenu(BiValue<String> ititle, MenuUnit[] inItems) {
+   /* public Submenu(BiString ititle, MenuUnit[] inItems) {
 	title().bind(ititle);
 	//items().set(new BindableSet<MenuItemUnit>());
 	initItems(inItems);

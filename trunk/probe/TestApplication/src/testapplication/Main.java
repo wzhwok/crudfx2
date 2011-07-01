@@ -95,7 +95,7 @@ public class Main {
 	final BaseWindow fwindow=window;
 	final Localization flocalization=localization;
 	final Tabs ftabs=tabs;
-	final BiValue<Integer> splitSize=fwindow.configuration().find("properties").find("split").find("").asInteger(100);
+	final BiNumber splitSize=fwindow.configuration().find("properties").find("split").find("").asNumber(100);
 	return new StandardTree()
 	    .treeItem(new TreeBranch()
 		.title("Visual components")

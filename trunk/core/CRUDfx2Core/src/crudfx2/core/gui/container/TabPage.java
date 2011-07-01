@@ -6,10 +6,10 @@ import crudfx2.core.bind.*;
 
 public class TabPage {
 
-    private BiValue<String> _title = new BiValue<String>();
-    private BiValue<String> _icon = new BiValue<String>();
+    private BiString _title = new BiString();
+    private BiString _icon = new BiString();
     private BiValue<Widget> _body = new BiValue<Widget>();
-    public BiValue<String> title() {
+    public BiString title() {
 	return _title;
     }
     public TabPage title(String n) {
@@ -20,7 +20,7 @@ public class TabPage {
 	title().bind(n);
 	return this;
     }
-    public BiValue<String> icon() {
+    public BiString icon() {
 	return _icon;
     }
     public TabPage icon(String n) {

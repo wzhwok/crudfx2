@@ -9,14 +9,14 @@ public class BaseWindow {
 
     public String key = "";
     private BiTree _configuration;
-    private BiValue<String> _title = new BiValue<String>();
-    private BiValue<String> _icon = new BiValue<String>();
+    private BiString _title = new BiString();
+    private BiString _icon = new BiString();
     private BiValue<Widget> _body = new BiValue<Widget>();
     private BiValue<Widget> _footer = new BiValue<Widget>();
     private BiSet<MenuPad> _menu = new BiSet<MenuPad>();
     //private BiSet<ToolbarUnit> _toolbar = new BiSet<ToolbarUnit>();
     private BiValue<Widget> _toolbar = new BiValue<Widget>();
-    private BaseTheme _theme;
+    //private BaseTheme _theme;
     //GroupSet<String> _localization = new GroupSet<String>();
 
     public BiSet<MenuPad> menu() {
@@ -50,7 +50,7 @@ public class BaseWindow {
         return this;
     }
 
-    public BaseWindow current(BiValue<String> key) {
+    public BaseWindow current(BiString key) {
         localization().current().bind(key);
         return this;
     }*/
@@ -68,7 +68,7 @@ public class BaseWindow {
         return _configuration;
     }
 
-    public BiValue<String> title() {
+    public BiString title() {
         return _title;
     }
 
@@ -82,7 +82,7 @@ public class BaseWindow {
         return this;
     }
 
-    public BiValue<String> icon() {
+    public BiString icon() {
         return _icon;
     }
 
@@ -141,10 +141,10 @@ public class BaseWindow {
     }
     
     
-    public BaseWindow(String applicationKey//, BiValue<String> applicationIcon
+    public BaseWindow(String applicationKey//, BiString applicationIcon
             , BaseTheme theme
 	    ) {
-        _theme = theme;
+        //_theme = theme;
         key = applicationKey;
         //_icon.bind(applicationIcon);
         _configuration = theme.loadConfiguration(key);
