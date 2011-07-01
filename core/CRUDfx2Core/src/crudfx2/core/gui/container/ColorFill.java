@@ -6,9 +6,9 @@ import crudfx2.core.bind.*;
 
 public class ColorFill extends Widget {
 
-    private BiValue<String> _color = new BiValue<String>();
+    private BiString _color = new BiString();
     private BiValue<Widget> _body = new BiValue<Widget>();
-    public BiValue<String> color() {
+    public BiString color() {
 	return _color;
     }
     public ColorFill color(String c) {

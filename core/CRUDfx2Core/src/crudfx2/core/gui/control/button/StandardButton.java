@@ -5,9 +5,9 @@ import crudfx2.core.bind.*;
 
 public class StandardButton extends Widget {
 
-    private BiValue<String> _title = new BiValue<String>();
-    private BiValue<String> _icon = new BiValue<String>();
-    public BiValue<String> title() {
+    private BiString _title = new BiString();
+    private BiString _icon = new BiString();
+    public BiString title() {
 	return _title;
     }
     public StandardButton title(String n) {
@@ -18,7 +18,7 @@ public class StandardButton extends Widget {
 	title().bind(n);
 	return this;
     }
-    public BiValue<String> icon() {
+    public BiString icon() {
 	return _icon;
     }
     public StandardButton icon(String n) {

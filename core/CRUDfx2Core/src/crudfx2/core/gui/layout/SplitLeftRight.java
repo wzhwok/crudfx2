@@ -7,15 +7,15 @@ public class SplitLeftRight extends Widget {
 
     private BiValue<Widget> _left = new BiValue<Widget>();
     private BiValue<Widget> _right = new BiValue<Widget>();
-    private BiValue<Integer> _split = new BiValue<Integer>(200);
-    public BiValue<Integer> split() {
+    private BiNumber _split = new BiNumber(200.0);
+    public BiNumber split() {
 	return _split;
     }
-    public SplitLeftRight split(Integer n) {
+    public SplitLeftRight split(Double n) {
 	split().set(n);
 	return this;
     }
-    public SplitLeftRight split(BiValue<Integer> n) {
+    public SplitLeftRight split(BiNumber n) {
 	split().bind(n);
 	return this;
     }

@@ -11,7 +11,7 @@ public class ToTray {
     
     static TabPage page = null;
     static BaseTheme baseTheme;
-    public static TabPage get(BaseTheme theme,BiValue<Integer> splitSize) {
+    public static TabPage get(BaseTheme theme,BiNumber splitSize) {
         baseTheme=theme;
         if (page == null) {
 	    page=ExamplePage.get(theme
@@ -21,7 +21,7 @@ public class ToTray {
 				}
 			    }
 			.title("Hide to system tray")		    
-		    , new BiValue<String>("System tray")
+		    , new BiString("System tray")
 		    , "pages/totray.html"
 		    , splitSize);
             /*page = new TabPage()

@@ -5,9 +5,9 @@ import crudfx2.core.bind.*;
 
 public class StandardLabel extends Widget {
 
-    private BiValue<String> _title = new BiValue<String>();
-    private BiValue<String> _icon = new BiValue<String>();
-    public BiValue<String> title() {
+    private BiString _title = new BiString();
+    private BiString _icon = new BiString();
+    public BiString title() {
 	return _title;
     }
     public StandardLabel title(String s) {
@@ -18,7 +18,7 @@ public class StandardLabel extends Widget {
 	title().bind(s);
 	return this;
     }
-    public BiValue<String> icon() {
+    public BiString icon() {
 	return _icon;
     }
     public StandardLabel icon(String s) {

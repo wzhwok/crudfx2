@@ -10,33 +10,39 @@ public class BiNumber extends BiValue<Double> {
     public BiNumber(Double i) {
 	super(i);
     }
+    public BiNumber(Integer i) {
+	super(i.doubleValue());
+    }
     public BiNumber(BiValue<Double> i) {
 	super(i);
     }
+    public void set(int newValue) {
+	set((double) newValue);
+    }
     /*public BiValue<Double> asDouble() {
-	if (_double == null) {
-	    _double = new BiValue<Double>((double) get()) {
-
-		@Override
-		public void onChange(Double newValue) {
-		    if (_double != null) {
-			if (_double.get() == null) {
-			    me.set(null);
-			} else {
-			    me.set(_double.get().DoubleValue());
-			}
-		    }
-		}
-	    };
-	    new BiValue<Double>(this) {
-
-		@Override
-		public void onChange(Double newValue) {
-		    _double.set((double) newValue);
-		}
-	    };
-	}
-	return _double;
+    if (_double == null) {
+    _double = new BiValue<Double>((double) get()) {
+    
+    @Override
+    public void onChange(Double newValue) {
+    if (_double != null) {
+    if (_double.get() == null) {
+    me.set(null);
+    } else {
+    me.set(_double.get().DoubleValue());
+    }
+    }
+    }
+    };
+    new BiValue<Double>(this) {
+    
+    @Override
+    public void onChange(Double newValue) {
+    _double.set((double) newValue);
+    }
+    };
+    }
+    return _double;
     }*/
     public BiNumber plus(Double value) {
 	final Double fvalue = value;
@@ -358,8 +364,8 @@ public class BiNumber extends BiValue<Double> {
 	return _string;
     }
     /*public static BiNumber fromDouble(BiValue<Double> i) {
-	BiNumber ii = new BiNumber(i.get().DoubleValue());
-	return ii;
+    BiNumber ii = new BiNumber(i.get().DoubleValue());
+    return ii;
     }*/
     public static void main(String a[]) {
 	BiNumber ii = new BiNumber(2.0);
@@ -373,7 +379,7 @@ public class BiNumber extends BiValue<Double> {
 	ss.set("33");
 	System.out.prDoubleln(ii.get() + ", " + dbl.get() + ", " + ss.get());*/
 	BiValue<Double> plu = new BiValue<Double>(3.0);
-	BiValue <Double>nn = ii.maximum(plu);
+	BiValue<Double> nn = ii.maximum(plu);
 	System.out.println(ii.get() + ", " + nn.get() + ", " + plu.get());
 	//System.out.prDoubleln(">");
 	nn.set(21.0);

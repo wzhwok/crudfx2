@@ -5,8 +5,8 @@ import crudfx2.core.bind.*;
 
 public class MiniBrowser extends Widget {
 
-    private BiValue<String> _html = new BiValue<String>();
-    public BiValue<String> html() {
+    private BiString _html = new BiString();
+    public BiString html() {
 	return _html;
     }
     public MiniBrowser html(String s) {

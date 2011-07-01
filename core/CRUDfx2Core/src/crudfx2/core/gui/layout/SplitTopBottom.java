@@ -7,15 +7,15 @@ public class SplitTopBottom extends Widget {
 
     private BiValue<Widget> _top = new BiValue<Widget>();
     private BiValue<Widget> _bottom = new BiValue<Widget>();
-    private BiValue<Integer> _split = new BiValue<Integer>();
-    public BiValue<Integer> split() {
+    private BiNumber _split = new BiNumber();
+    public BiNumber split() {
 	return _split;
     }
-    public SplitTopBottom split(Integer n) {
+    public SplitTopBottom split(Double n) {
 	split().set(n);
 	return this;
     }
-    public SplitTopBottom split(BiValue<Integer> n) {
+    public SplitTopBottom split(BiNumber n) {
 	split().bind(n);
 	return this;
     }

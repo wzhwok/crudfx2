@@ -43,11 +43,11 @@ public class NativeSplitLeftRight extends JSplitPane {
                 }
             }
         };
-        new BiValue<Integer>(link.split()) {
+        new BiNumber(link.split()) {
 
             @Override
-            public void onChange(Integer newValue) {
-                setDividerLocation(link.split().get());
+            public void onChange(Double newValue) {
+                setDividerLocation(link.split().get().intValue());
             }
         };
         this.addPropertyChangeListener(new PropertyChangeListener() {

@@ -10,7 +10,7 @@ import crudfx2.core.view.*;
 import crudfx2.core.bind.*;
 
 public class ExamplePage {
-    public static TabPage get(BaseTheme theme,Widget widget,BiValue<String>title,String description,BiValue<Integer> splitSize) {
+    public static TabPage get(BaseTheme theme,Widget widget,BiString title,String description,BiNumber splitSize) {
 	TabPage page = new TabPage()
 	    .title(title)
 	    .body(new SplitTopBottom()

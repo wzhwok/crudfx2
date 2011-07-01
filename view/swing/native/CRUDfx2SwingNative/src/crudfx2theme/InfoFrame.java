@@ -72,10 +72,10 @@ public class InfoFrame extends JDialog {
                 }.count(1).delay(5000).start();
             }
         }.count(15).delay(50);
-        tkr.current().bind(new BiValue<Integer>(0) {
+        tkr.current().bind(new BiNumber(0.0) {
 
             @Override
-            public void onChange(Integer newValue) {
+            public void onChange(Double newValue) {
                 double v = (double) newValue;
                 v = 6.0 * v * ((Math.PI / 90.0) / 2.0);
                 double g = Math.sin(v);

@@ -11,9 +11,11 @@ public class BiTree {
     public String raw = null;
     private BiSet<BiTree> _children = new BiSet<BiTree>();
     public BiTree saxparent = null;
-    private BiValue<String> _string = null;
+    /*private BiValue<String> _string = null;
     private BiValue<Integer> _integer = null;
-    private BiValue<Double> _doubl = null;
+    private BiValue<Double> _doubl = null;*/
+    private BiNumber _number = null;
+    private BiString _string = null;
     public boolean isAttribute = false;
     public boolean isCDATA = false;
     public boolean isText = false;
@@ -53,26 +55,26 @@ public class BiTree {
             raw = _string.get();
             return;
         }
-        if (_integer != null) {
-            raw = "" + _integer.get();
+        if (_number != null) {
+            raw = "" + _number.get();
             return;
         }
-        if (_doubl != null) {
+        /*if (_doubl != null) {
             raw = "" + _doubl.get();
             return;
-        }
+        }*/
     }
 
-    public BiValue<String> asString(String defaultValue) {
+    public BiString asString(String defaultValue) {
         if (_string == null) {
-            _string = new BiValue<String>(defaultValue);
+            _string = new BiString(defaultValue);
             if (raw != null) {
                 _string.set(raw);
             }
         }
         return _string;
     }
-
+/*
     public BiValue<Integer> asInteger(int defaultValue) {
         if (_integer == null) {
             _integer = new BiValue<Integer>(defaultValue);
@@ -88,10 +90,10 @@ public class BiTree {
         }
         return _integer;
     }
-
-    public BiValue<Double> asDouble(double defaultValue) {
-        if (_doubl == null) {
-            _doubl = new BiValue<Double>(defaultValue);
+*/
+    public BiNumber asNumber(double defaultValue) {
+        if (_number == null) {
+            _number = new BiNumber(defaultValue);
             double n = 0;
             if (raw != null) {
                 try {
@@ -99,9 +101,9 @@ public class BiTree {
                 } catch (Throwable t) {
                     t.printStackTrace();
                 }
-                _doubl.set(n);
+                _number.set(n);
             }
         }
-        return _doubl;
+        return _number;
     }
 }

@@ -4,10 +4,10 @@ import crudfx2.core.bind.*;
 
 public class MenuAction extends MenuUnit {
 
-    private BiValue<String> _title = new BiValue<String>();
-    private BiValue<String> _icon = new BiValue<String>();
+    private BiString _title = new BiString();
+    private BiString _icon = new BiString();
 
-    public BiValue<String> title() {
+    public BiString title() {
         return _title;
     }
 
@@ -21,7 +21,7 @@ public class MenuAction extends MenuUnit {
         return this;
     }
 
-    public BiValue<String> icon() {
+    public BiString icon() {
         return _icon;
     }
 
@@ -35,7 +35,7 @@ public class MenuAction extends MenuUnit {
         return this;
     }
 
-    /*public MenuAction(BiValue<String> icon, BiValue<String> ititle) {
+    /*public MenuAction(BiString icon, BiString ititle) {
         title().bind(ititle);
         icon().bind(icon);
     }*/

@@ -13,7 +13,7 @@ public class SectionPage {
     static TabPage page = null;
     static BaseTheme baseTheme;
 
-    public static TabPage get(BaseTheme theme,BiValue<Integer> splitSize) {
+    public static TabPage get(BaseTheme theme,BiNumber splitSize) {
         baseTheme=theme;
         if (page == null) {
 	    page=ExamplePage.get(theme
@@ -26,9 +26,9 @@ public class SectionPage {
 				.title("test")//.fold(true)
 				)	
 			    )
-			.width(200)
-			.height(200)
-		    , new BiValue<String>("Section")
+			.width(200.0)
+			.height(200.0)
+		    , new BiString("Section")
 		    , "pages/section.html"
 		    , splitSize);
         }

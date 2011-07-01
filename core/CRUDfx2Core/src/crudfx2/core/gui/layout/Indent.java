@@ -7,10 +7,10 @@ import crudfx2.core.bind.*;
 public class Indent extends Widget {
 
     private BiValue<Widget> _body = new BiValue<Widget>();
-    private BiValue<Integer> _left = new BiValue<Integer>(0);
-    private BiValue<Integer> _top = new BiValue<Integer>(0);
-    private BiValue<Integer> _right = new BiValue<Integer>(0);
-    private BiValue<Integer> _bottom = new BiValue<Integer>(0);
+    private BiNumber _left = new BiNumber(0.0);
+    private BiNumber _top = new BiNumber(0.0);
+    private BiNumber _right = new BiNumber(0.0);
+    private BiNumber _bottom = new BiNumber(0.0);
     public BiValue<Widget> body() {
 	return _body;
     }
@@ -22,47 +22,47 @@ public class Indent extends Widget {
 	body().bind(c);
 	return this;
     }
-    public BiValue<Integer> left() {
+    public BiNumber left() {
 	return _left;
     }
-    public Indent left(Integer n) {
+    public Indent left(Double n) {
 	left().set(n);
 	return this;
     }
-    public Indent left(BiValue<Integer> n) {
+    public Indent left(BiNumber n) {
 	left().bind(n);
 	return this;
     }
-    public BiValue<Integer> top() {
+    public BiNumber top() {
 	return _top;
     }
-    public Indent top(Integer n) {
+    public Indent top(Double n) {
 	top().set(n);
 	return this;
     }
-    public Indent top(BiValue<Integer> n) {
+    public Indent top(BiNumber n) {
 	top().bind(n);
 	return this;
     }
-    public BiValue<Integer> right() {
+    public BiNumber right() {
 	return _right;
     }
-    public Indent right(Integer n) {
+    public Indent right(Double n) {
 	right().set(n);
 	return this;
     }
-    public Indent right(BiValue<Integer> n) {
+    public Indent right(BiNumber n) {
 	right().bind(n);
 	return this;
     }
-    public BiValue<Integer> bottom() {
+    public BiNumber bottom() {
 	return _bottom;
     }
-    public Indent bottom(Integer n) {
+    public Indent bottom(Double n) {
 	bottom().set(n);
 	return this;
     }
-    public Indent bottom(BiValue<Integer> n) {
+    public Indent bottom(BiNumber n) {
 	bottom().bind(n);
 	return this;
     }
