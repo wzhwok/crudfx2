@@ -368,7 +368,7 @@ public class BiNumber extends BiValue<Double> {
     return ii;
     }*/
     public static void main(String a[]) {
-	BiNumber ii = new BiNumber(2.0);
+	//BiNumber ii = new BiNumber(2.0);
 	/*BiValue<Double> dbl = new BiValue<Double>(ii.asDouble());
 	BiValue<String> ss = new BiValue<String>(ii.asString());
 	System.out.prDoubleln(ii.get() + ", " + dbl.get() + ", " + ss.get());
@@ -378,7 +378,7 @@ public class BiNumber extends BiValue<Double> {
 	System.out.prDoubleln(ii.get() + ", " + dbl.get() + ", " + ss.get());
 	ss.set("33");
 	System.out.prDoubleln(ii.get() + ", " + dbl.get() + ", " + ss.get());*/
-	BiValue<Double> plu = new BiValue<Double>(3.0);
+	/*BiValue<Double> plu = new BiValue<Double>(3.0);
 	BiValue<Double> nn = ii.maximum(plu);
 	System.out.println(ii.get() + ", " + nn.get() + ", " + plu.get());
 	//System.out.prDoubleln(">");
@@ -387,7 +387,13 @@ public class BiNumber extends BiValue<Double> {
 	ii.set(122.0);
 	System.out.println(ii.get() + ", " + nn.get() + ", " + plu.get());
 	plu.set(500.0);
-	System.out.println(ii.get() + ", " + nn.get() + ", " + plu.get());
-
+	System.out.println(ii.get() + ", " + nn.get() + ", " + plu.get());*/
+	BiNumber tCelsius = new BiNumber(0);
+	BiNumber tFahrenheit = new BiNumber(tCelsius).multiply(9.0).divide(5.0).plus(32.0);
+	System.out.println("tFahrenheit: " + tFahrenheit.get() + ", tCelsius: " + tCelsius.get());
+	tFahrenheit.set(100);
+	System.out.println("tFahrenheit: " + tFahrenheit.get() + ", tCelsius: " + tCelsius.get());
+	tCelsius.set(100);
+	System.out.println("tFahrenheit: " + tFahrenheit.get() + ", tCelsius: " + tCelsius.get());
     }
 }
