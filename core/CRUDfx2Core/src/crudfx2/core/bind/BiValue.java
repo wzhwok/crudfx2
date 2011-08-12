@@ -6,21 +6,27 @@ public class BiValue<Kind> {
 
     private Vector<BiValue> _binded = new Vector<BiValue>();
     private Kind _value = null;
+
     public BiValue() {
     }
+
     public BiValue(Kind initVal) {
 	//this._value = initVal;
 	set(initVal);
     }
+
     public BiValue(BiValue<Kind> bindVal) {
 	this.bind(bindVal);
     }
+
     public Kind get() {
 	return _value;
     }
+
     public void set(Kind newValue) {
 	setForEachBindedItem(newValue, new Vector<BiValue>());
     }
+
     private void setForEachBindedItem(Kind newValue, Vector<BiValue> cashe) {
 	if (get() == null && newValue == null) {
 	    return;
@@ -38,8 +44,10 @@ public class BiValue<Kind> {
 	}
 	cashe.remove(this);
     }
+
     public void onChange(Kind newValue) {
     }
+
     public void bind(BiValue<Kind> to) {
 	if (to == null) {
 	    return;
@@ -52,6 +60,7 @@ public class BiValue<Kind> {
 	}
 	this.set(to.get());
     }
+
     public void unbind(BiValue<Kind> to) {
 	if (to == null) {
 	    return;
@@ -59,6 +68,7 @@ public class BiValue<Kind> {
 	this._binded.remove(to);
 	to._binded.remove(this);
     }
+
     public void unbindAll() {
 	for (int i = 0; i < _binded.size(); i++) {
 	    _binded.get(i).unbind(this);

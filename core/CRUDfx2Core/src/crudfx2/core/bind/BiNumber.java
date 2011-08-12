@@ -5,17 +5,22 @@ public class BiNumber extends BiValue<Double> {
     //private BiValue<Double> _double = null;
     private BiValue<String> _string = null;
     private BiNumber me = this;
+
     public BiNumber() {
     }
+
     public BiNumber(Double i) {
 	super(i);
     }
+
     public BiNumber(Integer i) {
 	super(i.doubleValue());
     }
+
     public BiNumber(BiValue<Double> i) {
 	super(i);
     }
+
     public void set(int newValue) {
 	set((double) newValue);
     }
@@ -44,6 +49,7 @@ public class BiNumber extends BiValue<Double> {
     }
     return _double;
     }*/
+
     public BiNumber plus(Double value) {
 	final Double fvalue = value;
 	return new BiNumber(new Calculation<Double>(this, new BiValue<Double>(get() + fvalue)) {
@@ -52,13 +58,15 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return second().get() - fvalue;
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		return first().get() + fvalue;
 	    }
 	}.second());
     }
-    public BiNumber plus(BiValue<Double> value) {
+
+    public BiNumber plus(BiNumber value) {
 	final BiValue<Double> fvalue = value;
 	final Calculation<Double> clc = new Calculation<Double>(this, new BiValue<Double>(get() + fvalue.get())) {
 
@@ -66,6 +74,7 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return second().get() - fvalue.get();
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		return first().get() + fvalue.get();
@@ -80,6 +89,7 @@ public class BiNumber extends BiValue<Double> {
 	};
 	return new BiNumber(clc.second());
     }
+
     public BiNumber maximum(Double value) {
 	final Double fvalue = value;
 	Double n = get();
@@ -101,6 +111,7 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return get();
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		Double n = get();
@@ -112,7 +123,8 @@ public class BiNumber extends BiValue<Double> {
 	};
 	return new BiNumber(clc.second());
     }
-    public BiNumber maximum(BiValue<Double> value) {
+
+    public BiNumber maximum(BiNumber value) {
 	final BiValue<Double> fvalue = value;
 	Double n = get();
 	if (n > fvalue.get()) {
@@ -142,6 +154,7 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return get();
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		Double n = get();
@@ -153,6 +166,7 @@ public class BiNumber extends BiValue<Double> {
 	};
 	return new BiNumber(clc.second());
     }
+
     public BiNumber minimum(Double value) {
 	final Double fvalue = value;
 	Double n = get();
@@ -174,6 +188,7 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return get();
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		Double n = get();
@@ -185,7 +200,8 @@ public class BiNumber extends BiValue<Double> {
 	};
 	return new BiNumber(clc.second());
     }
-    public BiNumber minimum(BiValue<Double> value) {
+
+    public BiNumber minimum(BiNumber value) {
 	final BiValue<Double> fvalue = value;
 	Double n = get();
 	if (n < fvalue.get()) {
@@ -215,6 +231,7 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return get();
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		Double n = get();
@@ -226,6 +243,7 @@ public class BiNumber extends BiValue<Double> {
 	};
 	return new BiNumber(clc.second());
     }
+
     public BiNumber multiply(Double value) {
 	final Double fvalue = value;
 	return new BiNumber(new Calculation<Double>(this, new BiValue<Double>(get() * fvalue)) {
@@ -234,13 +252,15 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return second().get() / fvalue;
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		return first().get() * fvalue;
 	    }
 	}.second());
     }
-    public BiNumber multiply(BiValue<Double> value) {
+
+    public BiNumber multiply(BiNumber value) {
 	final BiValue<Double> fvalue = value;
 	final Calculation<Double> clc = new Calculation<Double>(this, new BiValue<Double>(get() * fvalue.get())) {
 
@@ -248,6 +268,7 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return second().get() / fvalue.get();
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		return first().get() * fvalue.get();
@@ -262,6 +283,7 @@ public class BiNumber extends BiValue<Double> {
 	};
 	return new BiNumber(clc.second());
     }
+
     public BiNumber divide(Double value) {
 	final Double fvalue = value;
 	return new BiNumber(new Calculation<Double>(this, new BiValue<Double>(get() / fvalue)) {
@@ -270,26 +292,48 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return second().get() * fvalue;
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		return first().get() / fvalue;
 	    }
 	}.second());
     }
-    public BiNumber divide(BiValue<Double> value) {
-	final BiValue<Double> fvalue = value;
+
+    public BiNumber negativePositive(BiNumber negative, BiNumber positive) {
+	BiNumber n=new BiNumber (negative);
+	BiNumber p=new BiNumber (positive);
+	BiNumber r=new BiNumber (0.0);
+	return r;
+    }
+
+    public BiNumber negativePositive(Double negative, BiNumber positive) {
+	return this;
+    }
+
+    public BiNumber negativePositive(BiNumber negative, Double positive) {
+	return this;
+    }
+
+    public BiNumber negativePositive(Double negative, Double positive) {
+	return this;
+    }
+
+    public BiNumber divide(BiNumber value) {
+	final BiNumber fvalue = value;
 	final Calculation<Double> clc = new Calculation<Double>(this, new BiValue<Double>(get() / fvalue.get())) {
 
 	    @Override
 	    public Double calculateFirst() {
 		return second().get() * fvalue.get();
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		return first().get() / fvalue.get();
 	    }
 	};
-	new BiValue<Double>(fvalue) {
+	new BiNumber(fvalue) {
 
 	    @Override
 	    public void onChange(Double i) {
@@ -298,6 +342,7 @@ public class BiNumber extends BiValue<Double> {
 	};
 	return new BiNumber(clc.second());
     }
+
     public BiNumber minus(Double value) {
 	final Double fvalue = value;
 	return new BiNumber(new Calculation<Double>(this, new BiValue<Double>(get() - fvalue)) {
@@ -306,13 +351,15 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return second().get() + fvalue;
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		return first().get() - fvalue;
 	    }
 	}.second());
     }
-    public BiNumber minus(BiValue<Double> value) {
+
+    public BiNumber minus(BiNumber value) {
 	final BiValue<Double> fvalue = value;
 	final Calculation<Double> clc = new Calculation<Double>(this, new BiValue<Double>(get() - fvalue.get())) {
 
@@ -320,6 +367,7 @@ public class BiNumber extends BiValue<Double> {
 	    public Double calculateFirst() {
 		return second().get() + fvalue.get();
 	    }
+
 	    @Override
 	    public Double calculateSecond() {
 		return first().get() - fvalue.get();
@@ -334,6 +382,7 @@ public class BiNumber extends BiValue<Double> {
 	};
 	return new BiNumber(clc.second());
     }
+
     public BiValue<String> asString() {
 	if (_string == null) {
 	    _string = new BiValue<String>("" + get()) {
@@ -367,6 +416,7 @@ public class BiNumber extends BiValue<Double> {
     BiNumber ii = new BiNumber(i.get().DoubleValue());
     return ii;
     }*/
+
     public static void main(String a[]) {
 	//BiNumber ii = new BiNumber(2.0);
 	/*BiValue<Double> dbl = new BiValue<Double>(ii.asDouble());
@@ -395,5 +445,15 @@ public class BiNumber extends BiValue<Double> {
 	System.out.println("tFahrenheit: " + tFahrenheit.get() + ", tCelsius: " + tCelsius.get());
 	tCelsius.set(100);
 	System.out.println("tFahrenheit: " + tFahrenheit.get() + ", tCelsius: " + tCelsius.get());
+
+	BiNumber n1 = new BiNumber(0);
+	BiNumber n2 = new BiNumber(0);
+	n1.bind(n2.plus(9.0).negativePositive(1.0, 2.0));
+	System.out.println("1: " + n1.get() + ", 2: " + n2.get());
+	n1.set(100);
+	System.out.println("1: " + n1.get() + ", 2: " + n2.get());
+	n2.set(100);
+	System.out.println("1: " + n1.get() + ", 2: " + n2.get());
+
     }
 }
