@@ -300,24 +300,6 @@ public class BiNumber extends BiValue<Double> {
 	}.second());
     }
 
-    public BiNumber negativePositive(BiNumber negative, BiNumber positive) {
-	BiNumber n=new BiNumber (negative);
-	BiNumber p=new BiNumber (positive);
-	BiNumber r=new BiNumber (0.0);
-	return r;
-    }
-
-    public BiNumber negativePositive(Double negative, BiNumber positive) {
-	return this;
-    }
-
-    public BiNumber negativePositive(BiNumber negative, Double positive) {
-	return this;
-    }
-
-    public BiNumber negativePositive(Double negative, Double positive) {
-	return this;
-    }
 
     public BiNumber divide(BiNumber value) {
 	final BiNumber fvalue = value;
@@ -445,7 +427,7 @@ public class BiNumber extends BiValue<Double> {
 	System.out.println("tFahrenheit: " + tFahrenheit.get() + ", tCelsius: " + tCelsius.get());
 	tCelsius.set(100);
 	System.out.println("tFahrenheit: " + tFahrenheit.get() + ", tCelsius: " + tCelsius.get());
-
+/*
 	BiNumber n1 = new BiNumber(0);
 	BiNumber n2 = new BiNumber(0);
 	n1.bind(n2.plus(9.0).negativePositive(1.0, 2.0));
@@ -454,6 +436,6 @@ public class BiNumber extends BiValue<Double> {
 	System.out.println("1: " + n1.get() + ", 2: " + n2.get());
 	n2.set(100);
 	System.out.println("1: " + n1.get() + ", 2: " + n2.get());
-
+*/
     }
 }
