@@ -40,23 +40,27 @@ public class Fork<Kind> extends BiValue<Kind> {
 
     public static void main(String a[]) {
 	BiNumber n = new BiNumber();
+	BiValue<String> negative = new BiValue<String>("LESS");
+	BiValue<String> positive = new BiValue<String>("MORE OR EQUALS");
 	Fork f = new Fork<String>()//
 		.condition(n)//
-		.lessThenZero(new BiValue<String>("LESS"))//
-		.moreOrEqualsZero(new BiValue<String>("MORE OR EQUALS"))//
+		.lessThenZero(negative)//
+		.moreOrEqualsZero(positive)//
 		;
 	BiValue<String> s = new BiValue<String>();
 	s.bind(f);
-	System.out.println(n.get() + " / " + f.get() + " / " + s.get());
-	n.set(0);
-	System.out.println(n.get() + " / " + f.get() + " / " + s.get());
-	n.set(1);
-	System.out.println(n.get() + " / " + f.get() + " / " + s.get());
-	n.set(2);
-	System.out.println(n.get() + " / " + f.get() + " / " + s.get());
-	n.set(-2);
-	System.out.println(n.get() + " / " + f.get() + " / " + s.get());
+	System.out.println("condition: " + n.get() + ", fork: " + f.get() + ", string: " + s.get() + ", negative: " + negative.get() + ", positive: " + positive.get());
+	n.set(+0);
+	System.out.println("n.set(+0); > condition: " + n.get() + ", fork: " + f.get() + ", string: " + s.get() + ", negative: " + negative.get() + ", positive: " + positive.get());
+	n.set(+1);
+	System.out.println("n.set(+1); > condition: " + n.get() + ", fork: " + f.get() + ", string: " + s.get() + ", negative: " + negative.get() + ", positive: " + positive.get());
 	n.set(-1);
-	System.out.println(n.get() + " / " + f.get() + " / " + s.get());
+	System.out.println("n.set(-1); > condition: " + n.get() + ", fork: " + f.get() + ", string: " + s.get() + ", negative: " + negative.get() + ", positive: " + positive.get());
+	f.set("less");
+	System.out.println("f.set(\"less\"); > condition: " + n.get() + ", fork: " + f.get() + ", string: " + s.get() + ", negative: " + negative.get() + ", positive: " + positive.get());
+	n.set(+1);
+	System.out.println("n.set(+1); > condition: " + n.get() + ", fork: " + f.get() + ", string: " + s.get() + ", negative: " + negative.get() + ", positive: " + positive.get());
+	f.set("more");
+	System.out.println("f.set(\"more\"); > condition: " + n.get() + ", fork: " + f.get() + ", string: " + s.get() + ", negative: " + negative.get() + ", positive: " + positive.get());
     }
 }
